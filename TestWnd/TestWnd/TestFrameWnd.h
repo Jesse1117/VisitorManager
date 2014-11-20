@@ -15,6 +15,12 @@ public:
 	LRESULT OnNcActivate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	LRESULT OnNcCalcSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	LRESULT OnNcPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT OnClose(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL& bHandled);
+	LRESULT OnDestroy(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL& bHandled);
+	LRESULT OnSysCommand(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL& bHandled);
+	LRESULT OnNcHitTest(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL bHandled);
+	LRESULT OnSize(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL bHandled);
+	LRESULT OnGetMinMaxInfo(UINT uMsg,WPARAM wParam,LPARAM lParam,BOOL bHandled);
 	void InitCaptionButton();
 public:
 	CPaintManagerUI m_pm;
