@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="800,600" sizebox="4,4,4,4" caption="0,0,0,32" mininfo="600,400">
+<VerticalLayout name="background" bkimage="BKImage\11.jpg" bkcolor="#FF01ECFD" bordercolor="#FF47484B" >
+	
+</VerticalLayout>
+</Window>

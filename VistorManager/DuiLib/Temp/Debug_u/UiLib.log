@@ -1,0 +1,119 @@
+﻿生成启动时间为 2014-11-29 13:23:01。
+     1>项目“F:\MFC界面库\DuiLib_Redrain-master\DuiLib_Redrain-master\UiLib\UiLib.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“..\Temp\Debug_u\UiLib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D UILIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"..\Temp\Debug_u\UiLib_ud.pch" /Fo"..\Temp\Debug_u\\" /Fd"..\Temp\Debug_u\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D UILIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"..\Temp\Debug_u\UiLib_ud.pch" /Fo"..\Temp\Debug_u\\" /Fd"..\Temp\Debug_u\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Control\UIChartView.cpp Control\UIDateTime.cpp Control\UIFlash.cpp Control\UIGifAnim.cpp Control\UIActiveX.cpp Control\UIAnimation.cpp Control\UIButton.cpp Control\UICheckBox.cpp Control\UICombo.cpp Control\UIComboBox.cpp Control\UIEdit.cpp Control\UIFadeButton.cpp Control\UILabel.cpp Control\UIList.cpp Control\UIOption.cpp Control\UIProgress.cpp Control\UIRichEdit.cpp Control\UIScrollBar.cpp Control\UISlider.cpp Control\UIText.cpp Control\UITreeView.cpp Control\UIWebBrowser.cpp Core\UIBase.cpp Core\UIContainer.cpp Core\UIControl.cpp Core\UIDlgBuilder.cpp Core\UIDxAnimation.cpp Core\UIManager.cpp Core\UIMarkup.cpp Core\UIRender.cpp Core\UITimer.cpp Layout\UIAnimationTabLayout.cpp Layout\UIChildLayout.cpp Layout\UIHorizontalLayout.cpp Layout\UITabLayout.cpp Layout\UITileLayout.cpp Layout\UIVerticalLayout.cpp UIlib.cpp Utils\DuiAutoComplete.cpp Utils\DuiTrayIcon.cpp Utils\IWindowBase.cpp Utils\UIDelegate.cpp Utils\Utils.cpp Utils\WinImplBase.cpp
+         WinImplBase.cpp
+         Utils.cpp
+         UIDelegate.cpp
+         IWindowBase.cpp
+         DuiTrayIcon.cpp
+         DuiAutoComplete.cpp
+         UIlib.cpp
+         UIVerticalLayout.cpp
+         UITileLayout.cpp
+         UITabLayout.cpp
+         UIHorizontalLayout.cpp
+         UIChildLayout.cpp
+         UIAnimationTabLayout.cpp
+         UITimer.cpp
+         UIRender.cpp
+         UIMarkup.cpp
+         UIManager.cpp
+         UIDxAnimation.cpp
+         UIDlgBuilder.cpp
+         UIControl.cpp
+         正在生成代码...
+         正在编译...
+         UIContainer.cpp
+         UIBase.cpp
+         UIWebBrowser.cpp
+         UITreeView.cpp
+         UIText.cpp
+         UISlider.cpp
+         UIScrollBar.cpp
+         UIRichEdit.cpp
+         UIProgress.cpp
+         UIOption.cpp
+         UIList.cpp
+         UILabel.cpp
+         UIFadeButton.cpp
+         UIEdit.cpp
+         UIComboBox.cpp
+         UICombo.cpp
+         UICheckBox.cpp
+         UIButton.cpp
+         UIAnimation.cpp
+         UIActiveX.cpp
+         正在生成代码...
+         正在编译...
+         UIGifAnim.cpp
+         UIFlash.cpp
+         UIDateTime.cpp
+         UIChartView.cpp
+         正在生成代码...
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D UILIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Temp\Debug_u\\" /Fd"..\Temp\Debug_u\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt Utils\stb_image.c
+         stb_image.c
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D UILIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Temp\Debug_u\\" /Fd"..\Temp\Debug_u\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Utils\XUnzip.cpp
+         XUnzip.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../dll/UiLib_ud.dll" /INCREMENTAL /NOLOGO /LIBPATH:"F:\MFC界面库\DuiLib_Redrain-master\DuiLib_Redrain-master\\CommonFile\DLL_Debug_2010\\" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"F:\MFC界面库\DuiLib_Redrain-master\DuiLib_Redrain-master\dll\UiLib_ud.pdb" /TLBID:1 /BASE:"0x11000000" /DYNAMICBASE /NXCOMPAT /IMPLIB:"../Lib/UiLib_ud.lib" /MACHINE:X86 /DLL ..\Temp\Debug_u\UIChartView.obj
+         ..\Temp\Debug_u\UIDateTime.obj
+         ..\Temp\Debug_u\UIFlash.obj
+         ..\Temp\Debug_u\UIGifAnim.obj
+         ..\Temp\Debug_u\UIActiveX.obj
+         ..\Temp\Debug_u\UIAnimation.obj
+         ..\Temp\Debug_u\UIButton.obj
+         ..\Temp\Debug_u\UICheckBox.obj
+         ..\Temp\Debug_u\UICombo.obj
+         ..\Temp\Debug_u\UIComboBox.obj
+         ..\Temp\Debug_u\UIEdit.obj
+         ..\Temp\Debug_u\UIFadeButton.obj
+         ..\Temp\Debug_u\UILabel.obj
+         ..\Temp\Debug_u\UIList.obj
+         ..\Temp\Debug_u\UIOption.obj
+         ..\Temp\Debug_u\UIProgress.obj
+         ..\Temp\Debug_u\UIRichEdit.obj
+         ..\Temp\Debug_u\UIScrollBar.obj
+         ..\Temp\Debug_u\UISlider.obj
+         ..\Temp\Debug_u\UIText.obj
+         ..\Temp\Debug_u\UITreeView.obj
+         ..\Temp\Debug_u\UIWebBrowser.obj
+         ..\Temp\Debug_u\UIBase.obj
+         ..\Temp\Debug_u\UIContainer.obj
+         ..\Temp\Debug_u\UIControl.obj
+         ..\Temp\Debug_u\UIDlgBuilder.obj
+         ..\Temp\Debug_u\UIDxAnimation.obj
+         ..\Temp\Debug_u\UIManager.obj
+         ..\Temp\Debug_u\UIMarkup.obj
+         ..\Temp\Debug_u\UIRender.obj
+         ..\Temp\Debug_u\UITimer.obj
+         ..\Temp\Debug_u\UIAnimationTabLayout.obj
+         ..\Temp\Debug_u\UIChildLayout.obj
+         ..\Temp\Debug_u\UIHorizontalLayout.obj
+         ..\Temp\Debug_u\UITabLayout.obj
+         ..\Temp\Debug_u\UITileLayout.obj
+         ..\Temp\Debug_u\UIVerticalLayout.obj
+         ..\Temp\Debug_u\StdAfx.obj
+         ..\Temp\Debug_u\UIlib.obj
+         ..\Temp\Debug_u\DuiAutoComplete.obj
+         ..\Temp\Debug_u\DuiTrayIcon.obj
+         ..\Temp\Debug_u\IWindowBase.obj
+         ..\Temp\Debug_u\stb_image.obj
+         ..\Temp\Debug_u\UIDelegate.obj
+         ..\Temp\Debug_u\Utils.obj
+         ..\Temp\Debug_u\WinImplBase.obj
+         ..\Temp\Debug_u\XUnzip.obj
+            正在创建库 ../Lib/UiLib_ud.lib 和对象 ../Lib/UiLib_ud.exp
+         UiLib.vcxproj -> F:\MFC界面库\DuiLib_Redrain-master\DuiLib_Redrain-master\UiLib\..\dll\UiLib_ud.dll
+       FinalizeBuildStatus:
+         正在删除文件“..\Temp\Debug_u\UiLib.unsuccessfulbuild”。
+         正在对“..\Temp\Debug_u\UiLib.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“F:\MFC界面库\DuiLib_Redrain-master\DuiLib_Redrain-master\UiLib\UiLib.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:14.35

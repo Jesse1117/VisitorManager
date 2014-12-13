@@ -1,0 +1,101 @@
+﻿生成启动时间为 2014-11-29 15:53:55。
+     1>项目“F:\所有自学测试\VistorManager\DuiLib\DuiLib\DuiLib.vcxproj”在节点 3 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“..\Temp\Release\DuiLib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp".\Build\Release/DuiLib.pch" /Fo"..\Temp\Release\\" /Fd"..\Temp\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp".\Build\Release/DuiLib.pch" /Fo"..\Temp\Release\\" /Fd"..\Temp\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UIlib.cpp Utils\WinImplBase.cpp Utils\UIDelegate.cpp Utils\Utils.cpp Core\UIBase.cpp Core\UIContainer.cpp Core\UIControl.cpp Core\UIDlgBuilder.cpp Core\UIManager.cpp Core\UIMarkup.cpp Core\UIRender.cpp Layout\UIChildLayout.cpp Layout\UIHorizontalLayout.cpp Layout\UITabLayout.cpp Layout\UITileLayout.cpp Layout\UIVerticalLayout.cpp Control\UIActiveX.cpp Control\UIButton.cpp Control\UICheckBox.cpp Control\UICombo.cpp Control\UIComboBox.cpp Control\UIDateTime.cpp Control\UIEdit.cpp Control\UIFlash.cpp Control\UILabel.cpp Control\UIList.cpp Control\UIOption.cpp Control\UIProgress.cpp Control\UIRichEdit.cpp Control\UIScrollBar.cpp Control\UISlider.cpp Control\UIText.cpp Control\UITreeView.cpp Control\UIWebBrowser.cpp
+         UIlib.cpp
+         WinImplBase.cpp
+         UIDelegate.cpp
+         Utils.cpp
+         UIBase.cpp
+         UIContainer.cpp
+         UIControl.cpp
+         UIDlgBuilder.cpp
+         UIManager.cpp
+         UIMarkup.cpp
+         UIRender.cpp
+         UIChildLayout.cpp
+         UIHorizontalLayout.cpp
+         UITabLayout.cpp
+         UITileLayout.cpp
+         UIVerticalLayout.cpp
+         UIActiveX.cpp
+         UIButton.cpp
+         UICheckBox.cpp
+         UICombo.cpp
+         正在生成代码...
+         正在编译...
+         UIComboBox.cpp
+         UIDateTime.cpp
+         UIEdit.cpp
+         UIFlash.cpp
+         UILabel.cpp
+         UIList.cpp
+         UIOption.cpp
+         UIProgress.cpp
+         UIRichEdit.cpp
+     1>Control\UIRichEdit.cpp(2478): warning C4244: “参数”: 从“WORD”转换到“BYTE”，可能丢失数据
+         UIScrollBar.cpp
+         UISlider.cpp
+         UIText.cpp
+         UITreeView.cpp
+         UIWebBrowser.cpp
+         正在生成代码...
+         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Temp\Release\\" /Fd"..\Temp\Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt Utils\stb_image.c
+         stb_image.c
+         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Temp\Release\\" /Fd"..\Temp\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Utils\XUnzip.cpp
+         XUnzip.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../dll/DuiLib.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:.\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /PDB:"F:\所有自学测试\VistorManager\DuiLib\dll\DuiLib.pdb" /TLBID:1 /BASE:"0x11000000" /DYNAMICBASE /NXCOMPAT /IMPLIB:"../Lib/DuiLib.lib" /MACHINE:X86 /DLL ..\Temp\Release\StdAfx.obj
+         ..\Temp\Release\UIlib.obj
+         ..\Temp\Release\WinImplBase.obj
+         ..\Temp\Release\stb_image.obj
+         ..\Temp\Release\UIDelegate.obj
+         ..\Temp\Release\Utils.obj
+         ..\Temp\Release\XUnzip.obj
+         ..\Temp\Release\UIBase.obj
+         ..\Temp\Release\UIContainer.obj
+         ..\Temp\Release\UIControl.obj
+         ..\Temp\Release\UIDlgBuilder.obj
+         ..\Temp\Release\UIManager.obj
+         ..\Temp\Release\UIMarkup.obj
+         ..\Temp\Release\UIRender.obj
+         ..\Temp\Release\UIChildLayout.obj
+         ..\Temp\Release\UIHorizontalLayout.obj
+         ..\Temp\Release\UITabLayout.obj
+         ..\Temp\Release\UITileLayout.obj
+         ..\Temp\Release\UIVerticalLayout.obj
+         ..\Temp\Release\UIActiveX.obj
+         ..\Temp\Release\UIButton.obj
+         ..\Temp\Release\UICheckBox.obj
+         ..\Temp\Release\UICombo.obj
+         ..\Temp\Release\UIComboBox.obj
+         ..\Temp\Release\UIDateTime.obj
+         ..\Temp\Release\UIEdit.obj
+         ..\Temp\Release\UIFlash.obj
+         ..\Temp\Release\UILabel.obj
+         ..\Temp\Release\UIList.obj
+         ..\Temp\Release\UIOption.obj
+         ..\Temp\Release\UIProgress.obj
+         ..\Temp\Release\UIRichEdit.obj
+         ..\Temp\Release\UIScrollBar.obj
+         ..\Temp\Release\UISlider.obj
+         ..\Temp\Release\UIText.obj
+         ..\Temp\Release\UITreeView.obj
+         ..\Temp\Release\UIWebBrowser.obj
+            正在创建库 ../Lib/DuiLib.lib 和对象 ../Lib/DuiLib.exp
+         DuiLib.vcxproj -> F:\所有自学测试\VistorManager\DuiLib\DuiLib\..\dll\DuiLib.dll
+       FinalizeBuildStatus:
+         正在删除文件“..\Temp\Release\DuiLib.unsuccessfulbuild”。
+         正在对“..\Temp\Release\DuiLib.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“F:\所有自学测试\VistorManager\DuiLib\DuiLib\DuiLib.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.68

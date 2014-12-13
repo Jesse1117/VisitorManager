@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1000,598">
+	<VerticalLayout>
+		<HorizontalLayout height="25" bkcolor="#FFB8DFF2">
+			<Control width="3" />
+			<Option height="25" width="78" text="未访登记" name="NoRecord" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png" hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" selected="true"/>
+			<Control width="3" />
+			<Option height="25" width="78" text="离开注销" name="LeaveRecord" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png" hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+		</HorizontalLayout>
+		
+		<TabLayout name="tabRecord">
+			<VerticalLayout>
+				<HorizontalLayout>
+					<VerticalLayout><!--左边list区域/-->
+						
+					</VerticalLayout>
+					<VerticalLayout width="1"><!--左右黑边/-->
+      			<Container bkimage="Image\vertical_border.bmp" />
+    			</VerticalLayout>
+					<VerticalLayout width="250"><!--右边控件区域/-->
+						
+					</VerticalLayout>
+				</HorizontalLayout>
+				<HorizontalLayout height="1"><!--上下黑边/-->
+					<Container bkimage="Image\vertical_border.bmp" />
+				</HorizontalLayout>
+				<HorizontalLayout height="25" bkcolor="#FFD1E8F5"><!--状态栏/-->
+					
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout><!--tab2/-->
+				
+			</VerticalLayout>
+		</TabLayout>
+		
+	</VerticalLayout>
+</Window>
