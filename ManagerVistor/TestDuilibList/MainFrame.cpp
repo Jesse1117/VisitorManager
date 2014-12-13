@@ -48,6 +48,8 @@ void CMainFrame::Notify(TNotifyUI& msg)
 
 void CMainFrame::OnSearch()
 {
+	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(_T("domainlist")));
+	pList->SetTextCallback(this);
 	for(int i=0; i<100; i++)
 	{
 		std::stringstream ss;
@@ -57,9 +59,8 @@ void CMainFrame::OnSearch()
 		ss << "it's " << i;
 //		desc.push_back(ss.str());
 		CListTextElementUI* pListElement = new CListTextElementUI;
-		pListElement->SetText(i,_T("²ÞËùjo"));
 		pListElement->SetTag(i);
-		CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(_T("domainlist")));
+		
 		if( pList ) pList->Add(pListElement);
 	}
 	return ;
@@ -69,4 +70,21 @@ LRESULT CMainFrame::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT lRes = __super::HandleMessage(uMsg, wParam, lParam);
 	return lRes;
+}
+
+LPCTSTR CMainFrame::GetItemText(CControlUI* pControl,int iIndex,int iSubItem)
+{
+	TCHAR szBuf[255]={0};
+	switch(iSubItem)
+	{
+	case 0:
+		swprintf_s(szBuf,_T("%d"),iIndex);
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	}
+	pControl->SetUserData(szBuf);
+	return pControl->GetUserData();
 }
