@@ -81,8 +81,10 @@ LPCTSTR CMainFrame::GetItemText(CControlUI* pControl,int iIndex,int iSubItem)
 		swprintf_s(szBuf,_T("%d"),iIndex);
 		break;
 	case 1:
+		swprintf_s(szBuf,_T("%s"),L"test");
 		break;
 	case 2:
+		swprintf_s(szBuf,_T("%s"),L"test");
 		break;
 	}
 	pControl->SetUserData(szBuf);
