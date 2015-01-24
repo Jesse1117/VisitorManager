@@ -9,11 +9,11 @@
 		</HorizontalLayout>
 		<VerticalLayout width="477"/>
 		<HorizontalLayout width="123" inset="0,1,0,0">
-      <Button name="menubtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_menu.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_menu.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_menu.png' source='0,0,26,17'"/>
-     	<Button name="minbtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_min.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_min.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_min.png' source='0,0,26,17'"/>
-      <Button name="maxbtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_max.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_max.png' source='26,0,52,18'" pushedimage="file='Image\sys_dlg_max.png' source='0,0,26,17'"/>
-      <Button name="restorebtn" visible="false" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_restore.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_restore.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_restore.png' source='0,0,26,17'" />
-      <Button name="closebtn" maxwidth="45" maxheight="17" normalimage="file='Image\sys_dlg_close.png' source='90,0,135,17'" hotimage="file='Image\sys_dlg_close.png' source='45,0,90,17'" pushedimage="file='Image\sys_dlg_close.png' source='0,0,45,17'"/>
+      <Button name="menubtn" tooltip="菜单" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_menu.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_menu.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_menu.png' source='0,0,26,17'"/>
+     	<Button name="minbtn" tooltip="最小化" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_min.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_min.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_min.png' source='0,0,26,17'"/>
+      <Button name="maxbtn" tooltip="最大化" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_max.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_max.png' source='26,0,52,18'" pushedimage="file='Image\sys_dlg_max.png' source='0,0,26,17'"/>
+      <Button name="restorebtn" tooltip="还原" visible="false" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_restore.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_restore.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_restore.png' source='0,0,26,17'" />
+      <Button name="closebtn" tooltip="关闭" maxwidth="45" maxheight="17" normalimage="file='Image\sys_dlg_close.png' source='90,0,135,17'" hotimage="file='Image\sys_dlg_close.png' source='45,0,90,17'" pushedimage="file='Image\sys_dlg_close.png' source='0,0,45,17'"/>
     </HorizontalLayout>
 	</HorizontalLayout>
 	<HorizontalLayout height="70"><!--option栏/-->
