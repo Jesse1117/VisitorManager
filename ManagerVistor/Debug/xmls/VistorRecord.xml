@@ -32,9 +32,22 @@
 									<ListLabelElement text="男" selected="true" />
 									<ListLabelElement text="女" />
 								</Combo>
-								<Text text="住址:" float="true" pos="10,115,80,0" width="70" height="30" font="2" textcolor="#FF447AA1" font="2" align="right" />
-								<Edit name="AddressEdit" float="true" pos="82,113,0,0" width="220" height="25" font="2" float="true" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请扫描或输入住址" />
+								<Text text="卡号:" float="true" pos="10,115,80,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Edit name="CardNumEdit" float="true" pos="82,113,0,0" width="220" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请刷卡或输入卡号" />
 								<Container name="PicStatic" float="true" pos="320,8,0,0" width="120" height="120" bordersize="1" bordercolor="#FF447AA1" />
+								<Text text="地址:" float="true" pos="10,150,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Edit name="AddressEdit" float="true" pos="82,148,440,0" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请扫描或输入地址" />
+								<Text text="车牌号码:" float="true" pos="10,185,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Combo name="CarNumCombo" font="2" float="true" pos="82, 183, 0, 0" width="80" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
+								<Edit name="CarNumEdit" float="true" pos="170,183,440,0" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入车牌号码" />
+								<Text text="车类型:" float="true" pos="10,220,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Combo name="CarTypeCombo" font="2" float="true" pos="82, 218, 440, 0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
+								<Text text="来访单位:" float="true" pos="10,255,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Edit name="VistorUnitEdit" float="true" pos="82,253,440,0" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访单位" />
+								<Text text="电话:" float="true" pos="10,290,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Edit name="VistorPhoneNumEdit" float="true" pos="82,288,0,0" width="220" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访人电话号码" />
+								<Text text="人数:" float="true" pos="304,290,344,0" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Combo name="CarTypeCombo" font="2" float="true" pos="346,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
 							</VerticalLayout>
 							<VerticalLayout><!--右边的摄像头区域/-->
 								<Control height="8" />
