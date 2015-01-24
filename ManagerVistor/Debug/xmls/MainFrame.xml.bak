@@ -46,7 +46,7 @@
   	<TabLayout name="tabModule" selectedid="0" ><!--name="tabModule"/--><!--tab控件/-->
   		<HorizontalLayout>
   			<!--item1/-->
-  			<VistorRecord name="vistorRecord" >
+  			<VistorRecord >
   			</VistorRecord>
   		</HorizontalLayout>
   		<HorizontalLayout>

@@ -6,10 +6,10 @@
     <Font name="微软雅黑" size="22"/>
     <Font name="微软雅黑" size="13" bold="true" />
     /-->
-    <Font name="宋体" size="13" bold="true" />
-  	<Font name="宋体" size="12" bold="true" />
-  	<Font name="宋体" size="12" />
-  	<Font name="宋体" size="14" bold="true" />
+    <Font name="宋体" size="15" bold="true" />
+  	<Font name="宋体" size="13" bold="true" />
+  	<Font name="微软雅黑" size="15" />
+  	<Font name="宋体" size="15" bold="true" />
   	<Font name="宋体" size="22" bold="true" italic="true"/>
   	<Font name="宋体" size="12" />
     <Default name="Label" value="textcolor=&quot;#FFFFFFFF&quot; autocalcwidth=&quot;true&quot;" />

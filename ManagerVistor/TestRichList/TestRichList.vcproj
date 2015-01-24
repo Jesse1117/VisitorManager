@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\EXE"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="1"
@@ -171,6 +171,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\PageOne.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PageTwo.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\RichListWnd.cpp"
 				>
 			</File>
@@ -204,6 +212,14 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\PageOne.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PageTwo.h"
+				>
+			</File>
 			<File
 				RelativePath=".\Resource.h"
 				>

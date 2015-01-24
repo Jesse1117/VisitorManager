@@ -24,6 +24,7 @@ void CMainFrame::InitWindow()
 	m_pMaxBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("maxbtn")));
 	m_pMinBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("minbtn")));
 	m_pRestoreBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));
+	PostMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
 }
 
 CControlUI* CMainFrame::CreateControl( LPCTSTR pstrClassName )
@@ -41,12 +42,10 @@ LRESULT CMainFrame::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 void CMainFrame::Notify( TNotifyUI& msg )
 {
-	if(msg.sType == DUI_MSGTYPE_SELECTCHANGED)
-	{
+	if(msg.sType == DUI_MSGTYPE_SELECTCHANGED){
 		CDuiString name = msg.pSender->GetName();
 		CTabLayoutUI* pTabLayoutModule = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabModule")));
-		if(pTabLayoutModule)
-		{
+		if(pTabLayoutModule){
 			if(name==_T("record"))
 				pTabLayoutModule->SelectItem(0);
 			else if(name==_T("datamanage"))
@@ -61,8 +60,7 @@ void CMainFrame::Notify( TNotifyUI& msg )
 				pTabLayoutModule->SelectItem(5);
 		}
 		CTabLayoutUI* pTabLayoutRecord = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabRecord")));
-		if(pTabLayoutRecord)
-		{
+		if(pTabLayoutRecord){
 			if(name==_T("NoRecord"))
 				pTabLayoutRecord->SelectItem(0);
 			else if(name==_T("LeaveRecord"))
@@ -79,6 +77,7 @@ void CMainFrame::Notify( TNotifyUI& msg )
 		else if( msg.pSender == m_pMaxBtn ) { 
 			SendMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0); return; }
 		else if( msg.pSender == m_pRestoreBtn ) { 
-			SendMessage(WM_SYSCOMMAND, SC_RESTORE, 0); return; }
-}
+			SendMessage(WM_SYSCOMMAND, SC_RESTORE, 0); return; 
+		}
+	}
 }

@@ -1,5 +1,5 @@
 #pragma once
-#define DUI_MSGTYPE_SELECTCHANGED 		   (_T("selectchanged"))
+
 class CMainFrame : public WindowImplBase
 {
 public:

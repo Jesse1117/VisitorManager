@@ -201,7 +201,6 @@ namespace UiLib {
 			IListItemUI* pListItem = static_cast<IListItemUI*>(p->GetInterface(DUI_CTR_LISTITEM));
 			if( pListItem != NULL ) pListItem->SetIndex(i);
 		}
-
 		m_aSelItems.Remove(m_aSelItems.Find((LPVOID)iIndex));
 		return true;
 	}
