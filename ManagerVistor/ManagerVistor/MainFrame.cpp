@@ -2,7 +2,7 @@
 #include "MainFrame.h"
 #include <string.h>
 #include "VisitorRecordUI.h"
-
+#include "DataManageUI.h"
 using namespace std;
 
 CMainFrame::CMainFrame(LPCTSTR pszXMLName) : m_strXMLName(pszXMLName)
@@ -31,6 +31,8 @@ CControlUI* CMainFrame::CreateControl( LPCTSTR pstrClassName )
 {
 	if(_tcscmp(pstrClassName,_T("VistorRecord"))==0)
 		return new CVisitorRecordUI(&m_PaintManager);
+	if(_tcscmp(pstrClassName,_T("DataManage"))==0)
+		return new CDataManageUI(&m_PaintManager);
 	return NULL;
 }
 
@@ -65,6 +67,39 @@ void CMainFrame::Notify( TNotifyUI& msg )
 				pTabLayoutRecord->SelectItem(0);
 			else if(name==_T("LeaveRecord"))
 				pTabLayoutRecord->SelectItem(1);
+		}
+		CTabLayoutUI* pTabLayoutDataManage = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabDataManage")));
+		if (pTabLayoutDataManage)
+		{
+			if (name==L"Visitor")
+			{
+				pTabLayoutDataManage->SelectItem(0);
+			}
+			else if (name==L"Stay")
+			{
+				pTabLayoutDataManage->SelectItem(1);
+			}
+			else if (name==L"Visited")
+			{
+				pTabLayoutDataManage->SelectItem(2);
+			}
+			else if (name==L"Blacklist")
+			{
+				pTabLayoutDataManage->SelectItem(3);
+			}
+			else if (name==L"Staffcard")
+			{
+				pTabLayoutDataManage->SelectItem(4);
+			}
+			else if (name==L"Usualcard")
+			{
+				pTabLayoutDataManage->SelectItem(5);
+			}
+			else if (name==L"Doorkeeper")
+			{
+				pTabLayoutDataManage->SelectItem(6);
+			}
+
 		}
 	}
 	else if( msg.sType == _T("click") ) {

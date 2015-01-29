@@ -9,28 +9,28 @@
 		</HorizontalLayout>
 		<VerticalLayout width="477"/>
 		<HorizontalLayout width="123" inset="0,1,0,0">
-      <Button name="menubtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_menu.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_menu.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_menu.png' source='0,0,26,17'"/>
-     	<Button name="minbtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_min.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_min.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_min.png' source='0,0,26,17'"/>
-      <Button name="maxbtn" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_max.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_max.png' source='26,0,52,18'" pushedimage="file='Image\sys_dlg_max.png' source='0,0,26,17'"/>
-      <Button name="restorebtn" visible="false" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_restore.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_restore.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_restore.png' source='0,0,26,17'" />
-      <Button name="closebtn" maxwidth="45" maxheight="17" normalimage="file='Image\sys_dlg_close.png' source='90,0,135,17'" hotimage="file='Image\sys_dlg_close.png' source='45,0,90,17'" pushedimage="file='Image\sys_dlg_close.png' source='0,0,45,17'"/>
+      <Button name="menubtn" tooltip="菜单" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_menu.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_menu.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_menu.png' source='0,0,26,17'"/>
+     	<Button name="minbtn" tooltip="最小化" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_min.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_min.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_min.png' source='0,0,26,17'"/>
+      <Button name="maxbtn" tooltip="最大化" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_max.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_max.png' source='26,0,52,18'" pushedimage="file='Image\sys_dlg_max.png' source='0,0,26,17'"/>
+      <Button name="restorebtn" tooltip="还原" visible="false" maxwidth="26" maxheight="17" normalimage="file='Image\sys_dlg_restore.png' source='52,0,78,17'" hotimage="file='Image\sys_dlg_restore.png' source='26,0,52,17'" pushedimage="file='Image\sys_dlg_restore.png' source='0,0,26,17'" />
+      <Button name="closebtn" tooltip="关闭" maxwidth="45" maxheight="17" normalimage="file='Image\sys_dlg_close.png' source='90,0,135,17'" hotimage="file='Image\sys_dlg_close.png' source='45,0,90,17'" pushedimage="file='Image\sys_dlg_close.png' source='0,0,45,17'"/>
     </HorizontalLayout>
 	</HorizontalLayout>
 	<HorizontalLayout height="70"><!--option栏/-->
 		<HorizontalLayout>
 			
 			<Control width="10" />
-    	<Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="record" text="访客登记" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\record.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" selected="true"/>
+    	<Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="record" text="访客登记" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\record.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" selected="true"/>
       <Control width="30" />
-      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="datamanage" text="数据管理" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\data.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
+      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="datamanage" text="数据管理" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\data.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
       <Control width="30" />
-      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="check" text="考勤" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\check.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
+      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="check" text="考勤" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\check.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
       <Control width="30" />
-      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="appointment" text="预约" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\appointment.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
+      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="appointment" text="预约" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\appointment.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
       <Control width="30" />
-      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="user" text="用户" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\user.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
+      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="user" text="用户" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\user.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
       <Control width="30" />
-      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="email" text="信件代收" textcolor="#FF386382" font="1" textpadding="0,0,0,2" foreimage="file='Image\email.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
+      <Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="email" text="信件代收" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\email.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" />
       
 		</HorizontalLayout>
 		<HorizontalLayout width="300" inset="0,0,0,0"><!--log/-->

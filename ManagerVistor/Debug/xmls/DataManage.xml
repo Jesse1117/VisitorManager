@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1000,598">
+		<VerticalLayout>
+				<HorizontalLayout height="25" bkcolor="#FFB8DFF2">
+					<Control width="3" />
+					<Option height="25" width="100" text="来访人员" name="Visitor" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" selected="true"/>
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="滞留人员" name="Stay" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab"/>
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="被访人信息" name="Visited" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="黑名单" name="Blacklist" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="员工卡管理" name="Staffcard" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="常访客卡管理" name="Usualcard" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+				 	<Control width="3" />
+				 	<Option height="25" width="100" text="门卫管理" name="Doorkeeper" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png"
+				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
+				</HorizontalLayout>
+				
+				<TabLayout name="tabDataManage">
+					<VerticalLayout>
+						<HorizontalLayout>
+							<Control width="30" />
+							<VerticalLayout minwidth="450">
+								<HorizontalLayout height="35" />
+									<HorizontalLayout height="30">
+										<Edit name="SearchEdit" width="300" height="30" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入查询条件" />
+										<Button name="SearchBtn" text="查询" pos="330,0,0,0" width="100" textcolor="#00000000" height="30" float="true" font="0"  normalimage="Image\button_nor.bmp" hotimage="Image\button_over.bmp"
+											pushedimage="Image\button_down.bmp"/>
+									</HorizontalLayout>
+							</VerticalLayout>
+							<VerticalLayout width="1"><!--左右黑边/-->
+      							<Container bkimage="Image\vertical_border.bmp" />
+    						</VerticalLayout>
+							<VerticalLayout width="250" />
+						</HorizontalLayout>
+						<HorizontalLayout height="1"><!--上下黑边/-->
+							<Container bkimage="Image\vertical_border.bmp" />
+						</HorizontalLayout>
+						<HorizontalLayout height="25" bkcolor="#FFD1E8F5" /><!--状态栏/-->
+					</VerticalLayout>
+					<VerticalLayout>
+					</VerticalLayout>
+				</TabLayout>
+		</VerticalLayout>
+</Window>

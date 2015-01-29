@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <Window size="1000,598">
-	<VerticalLayout>
+
 		<HorizontalLayout height="25" bkcolor="#FFB8DFF2">
 			<Control width="3" />
 			<Option height="25" width="78" text="未访登记" name="NoRecord" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png" hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" selected="true"/>
@@ -46,8 +46,8 @@
 								<Edit name="VistorUnitEdit" float="true" pos="82,253,440,0" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访单位" />
 								<Text text="电话:" float="true" pos="10,290,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
 								<Edit name="VistorPhoneNumEdit" float="true" pos="82,288,0,0" width="220" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访人电话号码" />
-								<Text text="人数:" float="true" pos="184,290,224,0" height="30" font="2" textcolor="#FF447AA1" align="right" />
-								<Combo name="CarTypeCombo" font="2" float="true" pos="226,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
+								<Text text="人数:" float="true" pos="304,290,344,0" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<Combo name="CarTypeCombo" font="2" float="true" pos="346,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
 							</VerticalLayout>
 							<VerticalLayout><!--右边的摄像头区域/-->
 								<Control height="8" />
@@ -79,5 +79,5 @@
 			</VerticalLayout>
 		</TabLayout>
 		
-	</VerticalLayout>
+
 </Window>

@@ -51,6 +51,8 @@
   		</HorizontalLayout>
   		<HorizontalLayout>
   			<!--item2/-->
+  			<DataManage>
+  			</DataManage>
   		</HorizontalLayout>
   		<HorizontalLayout>
   			<!--item3/-->
