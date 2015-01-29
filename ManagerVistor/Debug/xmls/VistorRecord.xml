@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<Window size="1000,598">
+<Window size="1024,666">
 	<VerticalLayout>
 		<HorizontalLayout height="25" bkcolor="#FFB8DFF2">
 			<Control width="3" />
@@ -11,14 +11,14 @@
 		<TabLayout name="tabRecord">
 			<VerticalLayout>
 				<HorizontalLayout>
-					<VerticalLayout><!--左边list区域/-->
+					<VerticalLayout width="1024"><!--左边list区域/-->
 						<!--<HorizontalLayout height="15" />/-->
 						
 						<!--<Text text="证件类型:" pos="8,15,78,50" float="true" textcolor="#FF447AA1" font="2" />
 						<Edit name="CertiType" pos="80,13,250,35" font="2" float="true" textcolor="#FF447AA1" bordercolor="#FF447AA1" textpadding="2,2,2,2" showhtml="true" tipvalue="请扫描或输入证件号码" enabled="false" />/-->
 						<HorizontalLayout height="10" />
 						<HorizontalLayout>
-							<Control width="10" />
+						
 							<VerticalLayout width="450"><!--具体的信息控件/-->
 								<Text text="证件类型:" float="true" pos="10,10,0,0" width="70" height="30" textcolor="#FF447AA1" font="2" align="right" />
 								<Edit name="CertiTypeEdit" float="true" pos="82,8,302,33" width="220" height="25" font="2" float="true" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请扫描或输入证件类型" />
@@ -47,14 +47,18 @@
 								<Text text="电话:" float="true" pos="10,290,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
 								<Edit name="VistorPhoneNumEdit" float="true" pos="82,288,0,0" width="220" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访人电话号码" />
 								<Text text="人数:" float="true" pos="304,290,344,0" height="30" font="2" textcolor="#FF447AA1" align="right" />
-								<Combo name="CarTypeCombo" font="2" float="true" pos="346,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
+								<Combo name="VistorNum" font="2" float="true" pos="346,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
+								<Text text="预计离开:" float="true" pos="10,325,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+								<!--<DateTime name="LeaveDateTime" float="true" pos="82,323,0,0" width="120" height="25" padding="0,5,0,0" /> /-->
+ 								<MyDateTime name="LeaveDateTime" float="true" pos="82,323,0,0" width="120" height="25" font="2" bordercolor="#FF447AA1" bordersize="1" textpadding="2,2,2,2" /> 
 							</VerticalLayout>
-							<VerticalLayout><!--右边的摄像头区域/-->
+							<VerticalLayout width="10" />
+							<VerticalLayout width="500" height="300"><!--右边的摄像头区域/-->
 								<Control height="8" />
 								<Container bordersize="1" bordercolor="#FF97C0DA" >
 								</Container>
 							</VerticalLayout>
-							<Control width="5" />
+							<VerticalLayout width="10" />
 						</HorizontalLayout>
 						<HorizontalLayout height="188">
 						</HorizontalLayout>
@@ -62,7 +66,7 @@
 					<VerticalLayout width="1"><!--左右黑边/-->
       			<Container bkimage="Image\vertical_border.bmp" />
     			</VerticalLayout>
-					<VerticalLayout width="250"><!--右边控件区域/-->
+					<VerticalLayout><!--右边控件区域/-->
 						
 						
 					</VerticalLayout>

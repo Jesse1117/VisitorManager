@@ -38,7 +38,7 @@ namespace UiLib
 	void CDateTimeWnd::Init(CDateTimeUI* pOwner)
 	{
 		m_pOwner = pOwner;
-		m_pOwner->m_nDTUpdateFlag = DT_NONE;
+		m_pOwner->m_nDTUpdateFlag = GDT_NONE;
 
 		if (m_hWnd == NULL)
 		{
@@ -54,7 +54,7 @@ namespace UiLib
 		::SendMessage(m_hWnd, DTM_SETSYSTEMTIME, 0, (LPARAM)&m_pOwner->m_sysTime);
 		::ShowWindow(m_hWnd, SW_SHOWNOACTIVATE);
 		::SetFocus(m_hWnd);
-
+//		::SendMessage(m_hWnd,DTN_DROPDOWN,0,0);
 		m_bInit = true;    
 	}
 
@@ -84,6 +84,7 @@ namespace UiLib
 
 	LRESULT CDateTimeWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
+		/*
 		LRESULT lRes = 0;
 		BOOL bHandled = TRUE;
 		if( uMsg == WM_KILLFOCUS )
@@ -129,6 +130,83 @@ namespace UiLib
 		// 		}
 		else bHandled = FALSE;
 		if( !bHandled ) return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
+		return lRes;
+		*/
+		LRESULT lRes = 0;
+		BOOL bHandled = TRUE;
+		/**xpBug***/
+		//DWORD ProcessId;
+		if(WM_SETFOCUS==uMsg)
+		{
+			::OutputDebugString(L"WM_SETFOCUS\n");
+		}
+		if(WM_NOTIFY==uMsg)
+		{
+			::SetFocus(m_hWnd);
+			::OutputDebugString(L"WM_NOTIFY\n");
+		}
+		if( uMsg == WM_KILLFOCUS /**/)
+		{
+				//这里肯可能需要优化，因为FindWindow找出来的窗口不一定是本进程的窗口
+			HWND hh=::FindWindow(_T("SysMonthCal32"),NULL);
+				//Isdel=true;
+			if(::IsWindow(hh))
+			{
+				MCHITTESTINFO pp;
+				memset(&pp,0,sizeof(pp));
+				GetCursorPos(&pp.pt);
+				::ScreenToClient(hh,&pp.pt);
+				pp.cbSize=sizeof(pp);
+				MonthCal_HitTest(hh,&pp);
+				//下一个月
+				if(pp.uHit==MCHT_TITLEBTNNEXT)
+				{
+					return 1;
+				}
+				//上一个月
+				if(pp.uHit==MCHT_TITLEBTNPREV)
+				{
+					return 1;
+				}
+			}
+			else
+			{
+				POINT pt;
+				::GetCursorPos(&pt); 
+				RECT rt;
+				::GetWindowRect(m_hWnd,&rt);
+				if(!(pt.x>=rt.left&&pt.x<=rt.right)||
+					!(pt.x>=rt.top&&pt.x<=rt.bottom))
+				{
+					m_pOwner->m_nDTUpdateFlag = DT_NONE;
+					lRes= OnKillFocus(uMsg,wParam, lParam,bHandled);
+				}
+			}
+		}
+		else/**/ if (uMsg == WM_KEYUP && (wParam == VK_DELETE || wParam == VK_BACK))
+		{
+			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
+			m_pOwner->m_nDTUpdateFlag = DT_DELETE;
+			m_pOwner->UpdateText();
+			PostMessage(WM_CLOSE);
+			return lRes;
+		}
+		else if (uMsg == WM_KEYUP && wParam == VK_ESCAPE)
+		{
+			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
+			m_pOwner->m_nDTUpdateFlag = DT_KEEP;
+			PostMessage(WM_CLOSE);
+			return lRes;
+		}
+		else
+		{
+			bHandled = FALSE;
+		}
+
+		if(!bHandled ) 
+		{
+			return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
+		}
 		return lRes;
 	}
 
