@@ -91,7 +91,6 @@ namespace UiLib
 
 	void CDateTimeWnd::OnFinalMessage(HWND /*hWnd*/)
 	{
-		// Clear reference and die
 		if( m_hBkBrush != NULL ) ::DeleteObject(m_hBkBrush);
 		m_pOwner->m_pWindow = NULL;
 		delete this;
@@ -104,7 +103,6 @@ namespace UiLib
 		if(WM_NOTIFY==uMsg)
 		{
 			::SetFocus(m_hWnd);
-//			::OutputDebugString(L"WM_NOTIFY\n");
 		}
 		if( uMsg == WM_KILLFOCUS )
 		{
@@ -178,28 +176,10 @@ namespace UiLib
 			m_pOwner->m_nDTUpdateFlag = DT_UPDATE;
 			m_pOwner->UpdateText();
 		}
-//		PostMessage(WM_CLOSE);
 		::ShowWindow(GetHWND(),SW_HIDE);
 		return lRes;
 	}
 
-	// LRESULT CDateTimeWnd::OnEditChanged(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
-	// {
-	// 	if( !m_bInit ) return 0;
-	// 	if( m_pOwner == NULL ) return 0;
-	// 	// Copy text back
-	// 	int cchLen = ::GetWindowTextLength(m_hWnd) + 1;
-	// 	LPTSTR pstr = static_cast<LPTSTR>(_alloca(cchLen * sizeof(TCHAR)));
-	// 	ASSERT(pstr);
-	// 	if( pstr == NULL ) return 0;
-	// 	::GetWindowText(m_hWnd, pstr, cchLen);
-	// 	m_pOwner->m_sText = pstr;
-	// 	m_pOwner->GetManager()->SendNotify(m_pOwner, DUI_MSGTYPE_TEXTCHANGED);
-	// 	return 0;
-	// }
-
-	//////////////////////////////////////////////////////////////////////////
-	//
 	CDateTimeUI::CDateTimeUI() : m_pWindow(NULL),m_bReadOnly(false)
 	{
 		m_pWindow = new CDateTimeWnd();
