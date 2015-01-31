@@ -198,10 +198,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\MyDateTimeUI.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -257,10 +253,6 @@
 			</File>
 			<File
 				RelativePath=".\ManagerVistor.h"
-				>
-			</File>
-			<File
-				RelativePath=".\MyDateTimeUI.h"
 				>
 			</File>
 			<File

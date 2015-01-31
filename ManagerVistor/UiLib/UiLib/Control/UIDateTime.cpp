@@ -24,15 +24,29 @@ namespace UiLib
 		LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 		LRESULT OnKillFocus(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 		//LRESULT OnEditChanged(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
-
+		bool GetIsInit() const;
+		void ModifyStyle(UINT addStyle,UINT removeStyle);
+		BOOL GetIsTimeformat();
 	protected:
 		CDateTimeUI* m_pOwner;
 		HBRUSH m_hBkBrush;
 		bool m_bInit;
+		UINT m_uStyle;
 	};
 
-	CDateTimeWnd::CDateTimeWnd() : m_pOwner(NULL), m_hBkBrush(NULL), m_bInit(false)
+	CDateTimeWnd::CDateTimeWnd() : m_pOwner(NULL), m_hBkBrush(NULL), m_bInit(false),m_uStyle(WS_CHILD)
 	{
+	}
+	
+	void CDateTimeWnd::ModifyStyle(UINT addStyle,UINT removeStyle)
+	{
+		m_uStyle |= addStyle;
+		m_uStyle &= ~removeStyle;
+	}
+
+	BOOL CDateTimeWnd::GetIsTimeformat()
+	{
+		return m_uStyle & DTS_TIMEFORMAT;
 	}
 
 	void CDateTimeWnd::Init(CDateTimeUI* pOwner)
@@ -43,8 +57,8 @@ namespace UiLib
 		if (m_hWnd == NULL)
 		{
 			RECT rcPos = CalPos();
-			UINT uStyle = WS_CHILD;
-			Create(m_pOwner->GetManager()->GetPaintWindow(), NULL, uStyle, 0, rcPos);
+//			UINT uStyle = WS_CHILD;
+			Create(m_pOwner->GetManager()->GetPaintWindow(), NULL, m_uStyle, 0, rcPos);
 			SetWindowFont(m_hWnd, m_pOwner->GetManager()->GetFontInfo(m_pOwner->GetFont())->hFont, TRUE);
 		}
 
@@ -56,6 +70,11 @@ namespace UiLib
 		::SetFocus(m_hWnd);
 //		::SendMessage(m_hWnd,DTN_DROPDOWN,0,0);
 		m_bInit = true;    
+	}
+	
+	bool CDateTimeWnd::GetIsInit() const
+	{
+		return m_bInit;
 	}
 
 	RECT CDateTimeWnd::CalPos()
@@ -145,11 +164,10 @@ namespace UiLib
 			::SetFocus(m_hWnd);
 			::OutputDebugString(L"WM_NOTIFY\n");
 		}
-		if( uMsg == WM_KILLFOCUS /**/)
+		if( uMsg == WM_KILLFOCUS )
 		{
 				//这里肯可能需要优化，因为FindWindow找出来的窗口不一定是本进程的窗口
-			HWND hh=::FindWindow(_T("SysMonthCal32"),NULL);
-				//Isdel=true;
+			HWND hh= DateTime_GetMonthCal(GetHWND());//::FindWindow(_T("SysMonthCal32"),NULL);
 			if(::IsWindow(hh))
 			{
 				MCHITTESTINFO pp;
@@ -182,20 +200,23 @@ namespace UiLib
 					lRes= OnKillFocus(uMsg,wParam, lParam,bHandled);
 				}
 			}
+			
 		}
-		else/**/ if (uMsg == WM_KEYUP && (wParam == VK_DELETE || wParam == VK_BACK))
+		else if (uMsg == WM_KEYUP && (wParam == VK_DELETE || wParam == VK_BACK))
 		{
 			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
 			m_pOwner->m_nDTUpdateFlag = DT_DELETE;
 			m_pOwner->UpdateText();
-			PostMessage(WM_CLOSE);
+//			PostMessage(WM_CLOSE);
+			::ShowWindow(GetHWND(),SW_HIDE);
 			return lRes;
 		}
 		else if (uMsg == WM_KEYUP && wParam == VK_ESCAPE)
 		{
 			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
 			m_pOwner->m_nDTUpdateFlag = DT_KEEP;
-			PostMessage(WM_CLOSE);
+//			PostMessage(WM_CLOSE);
+			::ShowWindow(GetHWND(),SW_HIDE);
 			return lRes;
 		}
 		else
@@ -219,7 +240,8 @@ namespace UiLib
 			m_pOwner->m_nDTUpdateFlag = DT_UPDATE;
 			m_pOwner->UpdateText();
 		}
-		PostMessage(WM_CLOSE);
+//		PostMessage(WM_CLOSE);
+		::ShowWindow(GetHWND(),SW_HIDE);
 		return lRes;
 	}
 
@@ -240,13 +262,11 @@ namespace UiLib
 
 	//////////////////////////////////////////////////////////////////////////
 	//
-	CDateTimeUI::CDateTimeUI()
+	CDateTimeUI::CDateTimeUI() : m_pWindow(NULL),m_bReadOnly(false)
 	{
+		m_pWindow = new CDateTimeWnd();
+		ASSERT(m_pWindow);
 		::GetLocalTime(&m_sysTime);
-		m_bReadOnly = false;
-		m_pWindow = NULL;
-		m_nDTUpdateFlag=DT_UPDATE;
-		UpdateText();		// add by:daviyang35 初始化界面时显示时间
 		m_nDTUpdateFlag = DT_NONE;
 	}
 
@@ -290,8 +310,12 @@ namespace UiLib
 		else if (m_nDTUpdateFlag == DT_UPDATE)
 		{
 			CDuiString sText;
-			sText.SmallFormat(_T("%4d-%02d-%02d"),
-				m_sysTime.wYear, m_sysTime.wMonth, m_sysTime.wDay, m_sysTime.wHour, m_sysTime.wMinute);
+			if(!GetWindowTimeFormat())
+				sText.SmallFormat(_T("%4d-%02d-%02d"),
+					m_sysTime.wYear, m_sysTime.wMonth, m_sysTime.wDay);
+			else
+				sText.SmallFormat(_T("%02d:%02d:%02d"),
+					m_sysTime.wHour, m_sysTime.wMinute, m_sysTime.wSecond);
 			SetText(sText);
 		}
 	}
@@ -319,14 +343,15 @@ namespace UiLib
 		}
 		if( event.Type == UIEVENT_SETFOCUS && IsEnabled() ) 
 		{
-			if( m_pWindow ) return;
-			m_pWindow = new CDateTimeWnd();
-			ASSERT(m_pWindow);
-			m_pWindow->Init(this);
-			m_pWindow->ShowWindow();
+			if( m_pWindow )
+				if(!m_pWindow->GetIsInit())
+					m_pWindow->Init(this);
+				m_pWindow->ShowWindow();
+				return;
 		}
 		if( event.Type == UIEVENT_KILLFOCUS && IsEnabled() ) 
 		{
+			::ShowWindow(m_pWindow->GetHWND(),SW_HIDE);
 			Invalidate();
 		}
 		if( event.Type == UIEVENT_BUTTONDOWN || event.Type == UIEVENT_DBLCLICK || event.Type == UIEVENT_RBUTTONDOWN) 
@@ -340,7 +365,8 @@ namespace UiLib
 				}
 				if( m_pWindow != NULL )
 				{
-					m_pWindow->Init(this);
+					if(!m_pWindow->GetIsInit())
+						m_pWindow->Init(this);
 					m_pWindow->ShowWindow();
 				}
 			}
@@ -368,5 +394,54 @@ namespace UiLib
 		}
 
 		CLabelUI::DoEvent(event);
+	}
+
+	void CDateTimeUI::SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue)
+	{
+		if(_tcscmp(pstrName,_T("timestyle"))==0) 
+		{
+			if(_tcscmp(pstrValue,_T("shownone"))==0) SetWindowShowNone();
+			if(_tcscmp(pstrValue,_T("updown"))==0) SetWindowUpDown();
+			if(_tcscmp(pstrValue,_T("expand"))==0) SetWindowShowExpanded();
+			m_nDTUpdateFlag=DT_UPDATE;
+			UpdateText();
+		}
+		else if(_tcscmp(pstrName,_T("timeformat"))==0)
+		{
+			if(_tcscmp(pstrValue,_T("true"))==0)
+			{
+				SetWindowTimeFormat();
+				SetWindowUpDown();
+				m_nDTUpdateFlag=DT_UPDATE;
+				UpdateText();
+			}
+		}
+		else
+			CLabelUI::SetAttribute(pstrName,pstrValue);
+	}
+
+	void CDateTimeUI::SetWindowShowNone()
+	{
+		m_pWindow->ModifyStyle(DTS_SHOWNONE,DTS_UPDOWN);
+	}
+
+	void CDateTimeUI::SetWindowUpDown()
+	{
+		m_pWindow->ModifyStyle(DTS_UPDOWN,DTS_SHOWNONE);
+	}
+
+	void CDateTimeUI::SetWindowShowExpanded()
+	{
+		m_pWindow->ModifyStyle(0,DTS_SHOWNONE | DTS_UPDOWN);
+	}
+
+	void CDateTimeUI::SetWindowTimeFormat()
+	{
+		m_pWindow->ModifyStyle(DTS_TIMEFORMAT,0);
+	}
+
+	BOOL CDateTimeUI::GetWindowTimeFormat()
+	{
+		return m_pWindow->GetIsTimeformat();
 	}
 }

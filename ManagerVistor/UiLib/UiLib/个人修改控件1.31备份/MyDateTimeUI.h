@@ -3,7 +3,7 @@
 
 #pragma once
 
-#define DUI_CTR_MYDATETIME  (_T("MyDateTime"))
+
 
 namespace UiLib
 {
@@ -27,6 +27,7 @@ namespace UiLib
 		void SetWindowShowNone();//ÓÐcheckbox
 		void SetWindowUpDown();
 		void SetWindowShowExpanded();
+		void PaintBkColor(HDC hDC);
 	protected:
 		SYSTEMTIME m_sysTime;
 		int m_nDTUpdateFlag;
