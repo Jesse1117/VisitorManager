@@ -50,7 +50,8 @@
 								<Combo name="VistorNum" font="2" float="true" pos="346,288,440,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
 								<Text text="预计离开:" float="true" pos="10,325,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
 								<!--<DateTime name="LeaveDateTime" float="true" pos="82,323,0,0" width="120" height="25" padding="0,5,0,0" /> /-->
- 								<DateTime name="LeaveDateTime" float="true" pos="82,323,0,0" width="120" height="25" font="2" bordercolor="#FF447AA1" bordersize="1" textpadding="2,2,2,2" timestyle="expand" timeformat="true" /> 
+ 								<DateTime name="LeaveDate" float="true" pos="82,323,0,0" width="120" height="25" font="2" bordercolor="#FF447AA1" bordersize="1" textpadding="2,2,2,2" timestyle="expand" />
+ 								<DateTime name="LeaveTime" float="true" pos="205,323,0,0" width="80" height="25" font="2" bordercolor="#FF447AA1" bordersize="1" textpadding="2,2,2,2" timeformat="true" />
 							</VerticalLayout>
 							<VerticalLayout width="10" />
 							<VerticalLayout width="500" height="300"><!--右边的摄像头区域/-->

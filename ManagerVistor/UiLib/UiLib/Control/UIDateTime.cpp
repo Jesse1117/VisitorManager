@@ -53,7 +53,6 @@ namespace UiLib
 	{
 		m_pOwner = pOwner;
 		m_pOwner->m_nDTUpdateFlag = GDT_NONE;
-
 		if (m_hWnd == NULL)
 		{
 			RECT rcPos = CalPos();
@@ -61,14 +60,11 @@ namespace UiLib
 			Create(m_pOwner->GetManager()->GetPaintWindow(), NULL, m_uStyle, 0, rcPos);
 			SetWindowFont(m_hWnd, m_pOwner->GetManager()->GetFontInfo(m_pOwner->GetFont())->hFont, TRUE);
 		}
-
 		if (m_pOwner->GetText().IsEmpty())
 			::GetLocalTime(&m_pOwner->m_sysTime);
-
 		::SendMessage(m_hWnd, DTM_SETSYSTEMTIME, 0, (LPARAM)&m_pOwner->m_sysTime);
 		::ShowWindow(m_hWnd, SW_SHOWNOACTIVATE);
 		::SetFocus(m_hWnd);
-//		::SendMessage(m_hWnd,DTN_DROPDOWN,0,0);
 		m_bInit = true;    
 	}
 	
@@ -103,71 +99,17 @@ namespace UiLib
 
 	LRESULT CDateTimeWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
-		/*
 		LRESULT lRes = 0;
 		BOOL bHandled = TRUE;
-		if( uMsg == WM_KILLFOCUS )
-		{
-			lRes = OnKillFocus(uMsg, wParam, lParam, bHandled);
-		}
-		else if (uMsg == WM_KEYUP && (wParam == VK_DELETE || wParam == VK_BACK))
-		{
-			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
-			m_pOwner->m_nDTUpdateFlag = DT_DELETE;
-			m_pOwner->UpdateText();
-			PostMessage(WM_CLOSE);
-			return lRes;
-		}
-		else if (uMsg == WM_KEYUP && wParam == VK_ESCAPE)
-		{
-			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
-			m_pOwner->m_nDTUpdateFlag = DT_KEEP;
-			PostMessage(WM_CLOSE);
-			return lRes;
-		}
-		//	else if( uMsg == OCM_COMMAND ) {
-		// 		if( GET_WM_COMMAND_CMD(wParam, lParam) == EN_CHANGE ) lRes = OnEditChanged(uMsg, wParam, lParam, bHandled);
-		// 		else if( GET_WM_COMMAND_CMD(wParam, lParam) == EN_UPDATE ) {
-		// 			RECT rcClient;
-		// 			::GetClientRect(m_hWnd, &rcClient);
-		// 			::InvalidateRect(m_hWnd, &rcClient, FALSE);
-		// 		}
-		//	}
-		//	else if( uMsg == WM_KEYDOWN && TCHAR(wParam) == VK_RETURN ) {
-		// 		m_pOwner->GetManager()->SendNotify(m_pOwner, DUI_MSGTYPE_RETURN);
-		//	}
-		// 		else if( uMsg == OCM__BASE + WM_CTLCOLOREDIT  || uMsg == OCM__BASE + WM_CTLCOLORSTATIC ) {
-		// 			if( m_pOwner->GetNativeEditBkColor() == 0xFFFFFFFF ) return NULL;
-		// 			::SetBkMode((HDC)wParam, TRANSPARENT);
-		// 			DWORD dwTextColor = m_pOwner->GetTextColor();
-		// 			::SetTextColor((HDC)wParam, RGB(GetBValue(dwTextColor),GetGValue(dwTextColor),GetRValue(dwTextColor)));
-		// 			if( m_hBkBrush == NULL ) {
-		// 				DWORD clrColor = m_pOwner->GetNativeEditBkColor();
-		// 				m_hBkBrush = ::CreateSolidBrush(RGB(GetBValue(clrColor), GetGValue(clrColor), GetRValue(clrColor)));
-		// 			}
-		// 			return (LRESULT)m_hBkBrush;
-		// 		}
-		else bHandled = FALSE;
-		if( !bHandled ) return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
-		return lRes;
-		*/
-		LRESULT lRes = 0;
-		BOOL bHandled = TRUE;
-		/**xpBug***/
-		//DWORD ProcessId;
-		if(WM_SETFOCUS==uMsg)
-		{
-			::OutputDebugString(L"WM_SETFOCUS\n");
-		}
 		if(WM_NOTIFY==uMsg)
 		{
 			::SetFocus(m_hWnd);
-			::OutputDebugString(L"WM_NOTIFY\n");
+//			::OutputDebugString(L"WM_NOTIFY\n");
 		}
 		if( uMsg == WM_KILLFOCUS )
 		{
-				//这里肯可能需要优化，因为FindWindow找出来的窗口不一定是本进程的窗口
-			HWND hh= DateTime_GetMonthCal(GetHWND());//::FindWindow(_T("SysMonthCal32"),NULL);
+			HWND hh= DateTime_GetMonthCal(GetHWND());
+			//::FindWindow(_T("SysMonthCal32"),NULL);
 			if(::IsWindow(hh))
 			{
 				MCHITTESTINFO pp;
@@ -199,15 +141,13 @@ namespace UiLib
 					m_pOwner->m_nDTUpdateFlag = DT_NONE;
 					lRes= OnKillFocus(uMsg,wParam, lParam,bHandled);
 				}
-			}
-			
+			}			
 		}
 		else if (uMsg == WM_KEYUP && (wParam == VK_DELETE || wParam == VK_BACK))
 		{
 			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
 			m_pOwner->m_nDTUpdateFlag = DT_DELETE;
 			m_pOwner->UpdateText();
-//			PostMessage(WM_CLOSE);
 			::ShowWindow(GetHWND(),SW_HIDE);
 			return lRes;
 		}
@@ -215,7 +155,6 @@ namespace UiLib
 		{
 			LRESULT lRes = ::DefWindowProc(m_hWnd, uMsg, wParam, lParam);
 			m_pOwner->m_nDTUpdateFlag = DT_KEEP;
-//			PostMessage(WM_CLOSE);
 			::ShowWindow(GetHWND(),SW_HIDE);
 			return lRes;
 		}
@@ -223,7 +162,6 @@ namespace UiLib
 		{
 			bHandled = FALSE;
 		}
-
 		if(!bHandled ) 
 		{
 			return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
