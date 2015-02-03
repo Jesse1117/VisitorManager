@@ -265,6 +265,7 @@ namespace UiLib
 				if(!m_pWindow->GetIsInit())
 					m_pWindow->Init(this);
 				m_pWindow->ShowWindow();
+				::SetFocus(m_pWindow->GetHWND());
 				return;
 		}
 		if( event.Type == UIEVENT_KILLFOCUS && IsEnabled() ) 
