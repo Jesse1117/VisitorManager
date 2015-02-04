@@ -25,7 +25,7 @@
 				 	hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
 				</HorizontalLayout>
 				
-				<TabLayout name="tabDataManage">
+				<TabLayout name="tabDataManage">	
 					<VerticalLayout>
 						<HorizontalLayout>
 							<Control width="30" />
@@ -33,8 +33,42 @@
 								<HorizontalLayout height="35" />
 									<HorizontalLayout height="30">
 										<Edit name="SearchEdit" width="300" height="30" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入查询条件" />
-										<Button name="SearchBtn" text="查询" pos="330,0,0,0" width="100" height="30" float="true" font="0"  normalimage="Image\button_nor.bmp" hotimage="Image\button_over.bmp"
+										<Button name="SearchBtn" text="查询" pos="330,0,0,0" width="100" height="30" textcolor="#00000000"  float="true" font="0"  normalimage="Image\button_nor.bmp" hotimage="Image\button_over.bmp"
 											pushedimage="Image\button_down.bmp"/>
+									</HorizontalLayout>
+									<HorizontalLayout inset="0,30,30,30">
+										<List name="VisitorList" minwidth="420" bkcolor="#FFE9F5FF" vscrollbar="true" hscrollbar="true" itemshowhtml="true" bordercolor="0x00000000" padding="2,2,2,2">
+											<ListHeader name="domain" bkimage="Image\list_header_bg.png" height="30">
+												<ListHeaderItem text="照片" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="姓名" width="50"  font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png"/>
+												<ListHeaderItem text="性别" width="40" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="访客卡号" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="身份证号" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="住址" width="200" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="车牌号" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="联系电话" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="来访原因" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="来访人数" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="来访时间" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="离开时间" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+												<ListHeaderItem text="是否离开" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
+											</ListHeader>
+											<ListContainerElement height="70">
+												<VerticalLayout>
+													<HorizontalLayout height="70">
+													<VerticalLayout width="100">
+														<Button name="photo"  pos="20,5,0,0" float="true" width="60" height="60" bkimage="Image\man_big.png" />
+													</VerticalLayout>
+													<VerticalLayout width="50">
+														<Label name="Visitorname" text="张无忌" font="2" align="center" pos="0,5,0,0" float="true" width="50" height="70" />
+													</VerticalLayout>
+													</HorizontalLayout>	
+													<HorizontalLayout name="operation" height="30" visible="false">
+				
+													</HorizontalLayout>
+												</VerticalLayout>
+											</ListContainerElement>
+										</List>
 									</HorizontalLayout>
 							</VerticalLayout>
 							<VerticalLayout width="1"><!--左右黑边/-->

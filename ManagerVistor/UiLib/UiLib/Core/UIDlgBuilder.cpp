@@ -481,7 +481,7 @@ namespace UiLib
 		return m_xml.GetLastErrorLocation(pstrSource, cchMax);
 	}
 
-	CControlUI* CDialogBuilder::_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPaintManagerUI* pManager)
+	CControlUI* CDialogBuilder::	(CMarkupNode* pRoot, CControlUI* pParent, CPaintManagerUI* pManager)
 	{
 		IContainerUI* pContainer = NULL;
 		CControlUI* pReturn = NULL;
@@ -604,6 +604,7 @@ namespace UiLib
 					break;
 				case 11:
 					if (_tcscmp(pstrClass, DUI_CTR_CHILDLAYOUT) == 0)			  pControl = new CChildLayoutUI;
+					
 					break;
 				case 14:
 					if( _tcscmp(pstrClass, DUI_CTR_VERTICALLAYOUT) == 0 )         pControl = new CVerticalLayoutUI;

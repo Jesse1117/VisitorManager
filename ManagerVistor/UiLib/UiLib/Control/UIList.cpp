@@ -3055,12 +3055,42 @@ namespace UiLib {
 	void CListContainerElementUI::DoPaint(HDC hDC, const RECT& rcPaint)
 	{
 		if( !::IntersectRect(&m_rcPaint, &rcPaint, &m_rcItem) ) return;
+		DrawItemText(hDC,m_rcItem);
 		DrawItemBk(hDC, m_rcItem);
 		CContainerUI::DoPaint(hDC, rcPaint);
 	}
 
 	void CListContainerElementUI::DrawItemText(HDC hDC, const RECT& rcItem)
 	{
+		ASSERT(m_pOwner);
+		if (m_pOwner==NULL) return;
+		TListInfoUI* pInfo = m_pOwner->GetListInfo();
+		DWORD iTextColor = pInfo->dwTextColor;
+
+		if ((m_uButtonState&UISTATE_HOT)!=0)
+		{
+			iTextColor = pInfo->dwHotTextColor;
+		}
+		if (IsSelected())
+		{
+			iTextColor = pInfo->dwSelectedTextColor;
+		}	
+		if (!IsEnabled())
+		{
+			iTextColor = pInfo->dwDisabledTextColor;
+		}
+		for (int i=0;i<pInfo->nColumns;i++)
+		{
+			RECT rcItem= {pInfo->rcColumn[i].left,m_rcItem.top,pInfo->rcColumn[i].right,m_rcItem.bottom};
+			rcItem.left += pInfo->rcTextPadding.left;
+			rcItem.right -= pInfo->rcTextPadding.right;
+			rcItem.top += pInfo->rcTextPadding.top;
+			rcItem.bottom -= pInfo->rcTextPadding.bottom;
+
+			CControlUI* pControl = GetItemAt(i);
+			pControl->SetPos(rcItem);
+		}
+		
 		return;
 	}
 
@@ -3124,7 +3154,7 @@ namespace UiLib {
 
 	void CListContainerElementUI::SetPos(RECT rc)
 	{	
-		CHorizontalLayoutUI::SetPos(rc);
+		/*CHorizontalLayoutUI::SetPos(rc);
 		if( m_pOwner == NULL ) return;		
 
 		CListUI* pList = static_cast<CListUI*>(m_pOwner);
@@ -3149,6 +3179,46 @@ namespace UiLib {
 			}
 		}
 
-		m_nOldCxPos = nNewCxPos;
+		m_nOldCxPos = nNewCxPos;*/
+		if( m_pOwner == NULL ) return;
+		TListInfoUI* pInfo = m_pOwner->GetListInfo();
+		int iChangeIndex=0;
+		LONG cx = 0;
+		for( int i = 0; i < pInfo->nColumns; i++ )
+		{
+			CControlUI* pControl = GetItemAt(i);
+			if(!pControl) break;
+			RECT rcOldItem = pControl->GetPos();
+			if(pInfo->rcColumn[i].right-rcOldItem.right!=0){
+				iChangeIndex =i;
+				cx=pInfo->rcColumn[i].right-rcOldItem.right;
+				break;
+
+			}
+
+
+		}
+		RECT rcNew = {rc.left,rc.top,rc.right+cx,rc.bottom};
+		CControlUI::SetPos(rcNew);
+		if( m_items.IsEmpty() ) return;
+		rcNew.left += m_rcInset.left;
+		rcNew.top += m_rcInset.top;
+		rcNew.right -= m_rcInset.right;
+		rcNew.bottom -= m_rcInset.bottom;
+
+
+		for( int it = 0; it < m_items.GetSize(); it++ ) {
+			CControlUI* pControl = static_cast<CControlUI*>(m_items[it]);
+			if( !pControl->IsVisible() ) continue;
+			if( pControl->IsFloat() ) {
+				if(it>=iChangeIndex){
+					RECT rcItem = { pInfo->rcColumn[it].left, m_rcItem.top, pInfo->rcColumn[it].right, m_rcItem.bottom };
+					pControl->SetPos(rcItem);
+				}
+			}
+			else {
+				pControl->SetPos(rcNew); // 所有非float子控件放大到整个客户区
+			}
+		}
 	}
 } // namespace UiLib

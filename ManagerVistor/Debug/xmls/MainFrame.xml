@@ -18,7 +18,7 @@
 	</HorizontalLayout>
 	<HorizontalLayout height="70"><!--option栏/-->
 		<HorizontalLayout>
-			
+		
 			<Control width="10" />
     	<Option width="65" height="65" maxwidth="65" maxheight="65" valign="bottom" name="record" text="访客登记" textcolor="#FF386382" font="3" textpadding="0,0,0,2" foreimage="file='Image\record.png' dest='12,7,52,47'" normalimage="Image\toolbar_normal.png" hotimage="Image\toolbar_hover.png" pushedimage="Image\toolbar_pushed.png" selectedimage="Image\toolbar_pushed.png" group="quickbar" selected="true"/>
       <Control width="30" />

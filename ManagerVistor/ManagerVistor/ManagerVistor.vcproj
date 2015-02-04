@@ -222,6 +222,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\VisitorListUI.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\VisitorRecordUI.cpp"
 				>
 			</File>
@@ -273,6 +277,10 @@
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorListUI.h"
 				>
 			</File>
 			<File

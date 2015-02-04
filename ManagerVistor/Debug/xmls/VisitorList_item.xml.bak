@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+	<ListContainerElement>
+		<VerticalLayout>
+			<HorizontalLayout height="70">
+					<VerticalLayout width="100">
+						<Button name="photo"  pos="20,5,0,0" width="60" height="60" bkimage="Image\man_big.png" />
+					</VerticalLayout>
+			</HorizontalLayout>	
+			<HorizontalLayout name="operation" height="30" visible="false">
+				
+			</HorizontalLayout>
+		</VerticalLayout>
+	</ListContainerElement>
+</Window>	
