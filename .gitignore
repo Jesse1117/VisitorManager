@@ -29,4 +29,7 @@ _ReSharper*/
 *.scc
 *.sdf
 *.opensdf
+*.htm
+*.idb
+*.dep
 $tf*/
