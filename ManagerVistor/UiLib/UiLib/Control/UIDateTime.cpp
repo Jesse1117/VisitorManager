@@ -264,9 +264,11 @@ namespace UiLib
 			if( m_pWindow )
 				if(!m_pWindow->GetIsInit())
 					m_pWindow->Init(this);
-				m_pWindow->ShowWindow();
-				::SetFocus(m_pWindow->GetHWND());
-				return;
+			RECT rc = GetPos();
+			::MoveWindow(m_pWindow->GetHWND(),rc.left,rc.top,rc.right - rc.left,rc.bottom - rc.top,FALSE);
+			m_pWindow->ShowWindow();
+			::SetFocus(m_pWindow->GetHWND());
+			return;
 		}
 		if( event.Type == UIEVENT_KILLFOCUS && IsEnabled() ) 
 		{
@@ -286,6 +288,8 @@ namespace UiLib
 				{
 					if(!m_pWindow->GetIsInit())
 						m_pWindow->Init(this);
+					RECT rc = GetPos();
+					::MoveWindow(m_pWindow->GetHWND(),rc.left,rc.top,rc.right - rc.left,rc.bottom - rc.top,FALSE);
 					m_pWindow->ShowWindow();
 				}
 			}

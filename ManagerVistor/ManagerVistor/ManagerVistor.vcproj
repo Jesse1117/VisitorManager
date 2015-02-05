@@ -240,6 +240,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ConstDataDef.h"
+				>
+			</File>
+			<File
 				RelativePath=".\DealTime.h"
 				>
 			</File>
