@@ -53,7 +53,7 @@
 												<ListHeaderItem text="离开时间" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
 												<ListHeaderItem text="是否离开" width="100" font="2" sepwidth="1" hotimage="Image/list_header_hot.png" pushedimage="Image/list_header_pushed.png" sepimage="Image/list_header_sep.png" />
 											</ListHeader>
-											<ListContainerElement height="70">
+											<!--<ListContainerElement height="70">
 												<VerticalLayout>
 													<HorizontalLayout height="70">
 													<VerticalLayout width="100">
@@ -67,7 +67,7 @@
 				
 													</HorizontalLayout>
 												</VerticalLayout>
-											</ListContainerElement>
+											</ListContainerElement>/-->
 										</List>
 									</HorizontalLayout>
 							</VerticalLayout>

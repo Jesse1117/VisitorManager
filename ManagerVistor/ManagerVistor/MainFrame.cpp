@@ -26,20 +26,22 @@ void CMainFrame::InitWindow()
 	m_pMinBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("minbtn")));
 	m_pRestoreBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));
 	PostMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
-	//CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
-	//CListContainerElementUI* pListItem = new CListContainerElementUI;
-	//pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
-	//pList->Add(pListItem);
-	/*CListContainerElementUI* pListItem =  NULL;
+	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
+	CListContainerElementUI* pListItem = new CListContainerElementUI;
 	if (!m_dlgBuilder.GetMarkup()->IsValid())
-	{
-		pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
+	{	
+		/*pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);*/
 		pList->Add(pListItem);
 		pListItem->SetFixedHeight(30);
 	}
 	else {
 		pListItem = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create((UINT)0, &m_PaintManager));
-	}*/
+	}
+	//pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
+	//pList->Add(pListItem);
+	//pListItem->SetFixedHeight(30);
+	//CListContainerElementUI* pListItem =  NULL;
+
 	//CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI;
 	//pList->Add(pListHeaderItem);
 	//pListHeaderItem->SetText(L"ÐÕÃû");
