@@ -54,5 +54,7 @@ private:
 private:
 	void InitSearchCtrl();
 	void AddCertitypeMsg();
+private:
+	CDialogBuilder m_dlgBuilder;
 };
 
