@@ -20,3 +20,16 @@ CVisitorRecordUI::CVisitorRecordUI(CPaintManagerUI* pManager)
 CVisitorRecordUI::~CVisitorRecordUI(void)
 {
 }
+
+void CVisitorRecordUI::DoEvent(TEventUI& event)
+{
+	switch(event.Type)
+	{
+	case UIEVENT_RBUTTONDOWN:
+		break;
+	case UIEVENT_KEYDOWN:
+		break;
+	}
+	CContainerUI::DoEvent(event);
+}
+
