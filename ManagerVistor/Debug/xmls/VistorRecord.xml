@@ -7,7 +7,7 @@
 			<Control width="3" />
 			<Option height="25" width="78" text="离开注销" name="LeaveRecord" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png" hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
 		</HorizontalLayout>
-		<TabLayout name="tabRecord">
+		<TabLayout name="tabRecord" selectedid="0">
 			<VerticalLayout>
 				<HorizontalLayout>
 					<VerticalLayout width="1023"><!--左边list区域/-->
@@ -54,7 +54,9 @@
  								<DateTime name="LeaveTime" float="true" pos="202,278,0,0" width="100" height="25" font="2" bordercolor="#FF447AA1" bordersize="1" textpadding="2,2,2,2" timeformat="true" />
  								<Text text="批次:" float="true" pos="304,282,344,0" height="30" font="2" textcolor="#FF447AA1" align="right" />
  								<Combo name="BatchCombo" font="2" float="true" pos="346,278,410,0" height="25" normalimage="file='Image\Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Image\Combo_over.bmp' corner='2,2,24,2'" textpadding="2,2,2,2" />
- 								<Button name="AddBatchBtn" tooltip="添加批次" float="true" pos="415,278,0,0" width="24" height="24" normalimage="file='Image\add.png'" hotimage="Image\add1.png" pushedimage="Image\add2.png" />   
+ 								<Button name="AddBatchBtn" tooltip="添加批次" float="true" pos="415,278,0,0" width="24" height="24" normalimage="file='Image\add.png'" hotimage="Image\add1.png" pushedimage="Image\add2.png" />
+ 								<Text text="来访事由:" float="true" pos="10,312,0,0" width="70" height="30" font="2" textcolor="#FF447AA1" align="right" />
+ 								<Edit name="VistorReasonEdit" float="true" pos="82,310,440,0" height="25" font="2" bordercolor="#FF447AA1" focusbordercolor="#FF447AA1" colorhsl="true" textpadding="2,2,2,2" showhtml="true" tipvalue="请输入来访事由" />   
 							</VerticalLayout>
 							<VerticalLayout width="5" />
 							<VerticalLayout width="550" height="303"><!--右边的摄像头区域/-->
