@@ -31,5 +31,8 @@ protected:
 	CControlUI* m_pMinBtn;
 	CControlUI* m_pMaxBtn;
 	CControlUI* m_pRestoreBtn;
+
+private:
+	CDialogBuilder m_dlgBuilder;
 };
 

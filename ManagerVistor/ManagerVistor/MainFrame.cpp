@@ -2,7 +2,8 @@
 #include "MainFrame.h"
 #include <string.h>
 #include "VisitorRecordUI.h"
-
+#include "DataManageUI.h"
+#include "VisitorListUI.h"
 using namespace std;
 
 CMainFrame::CMainFrame(LPCTSTR pszXMLName) : m_strXMLName(pszXMLName)
@@ -25,12 +26,37 @@ void CMainFrame::InitWindow()
 	m_pMinBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("minbtn")));
 	m_pRestoreBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));
 	PostMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
+	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
+	CListContainerElementUI* pListItem = new CListContainerElementUI;
+	if (!m_dlgBuilder.GetMarkup()->IsValid())
+	{	
+		/*pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);*/
+		pList->Add(pListItem);
+		pListItem->SetFixedHeight(30);
+	}
+	else {
+		pListItem = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create((UINT)0, &m_PaintManager));
+	}
+	//pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
+	//pList->Add(pListItem);
+	//pListItem->SetFixedHeight(30);
+	//CListContainerElementUI* pListItem =  NULL;
+
+	//CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI;
+	//pList->Add(pListHeaderItem);
+	//pListHeaderItem->SetText(L"ÐÕÃû");
+	//pListHeaderItem->SetFixedWidth(40);
+	//pListHeaderItem->SetFixedHeight(30);
+	//pListHeaderItem->SetSepWidth(1);
+	//pListHeaderItem->SetHotImage(L"Image\list_header_hot.png");
 }
 
 CControlUI* CMainFrame::CreateControl( LPCTSTR pstrClassName )
 {
 	if(_tcscmp(pstrClassName,_T("VistorRecord"))==0)
 		return new CVisitorRecordUI(&m_PaintManager);
+	if(_tcscmp(pstrClassName,_T("DataManage"))==0)
+		return new CDataManageUI(&m_PaintManager);
 	return NULL;
 }
 
@@ -65,6 +91,39 @@ void CMainFrame::Notify( TNotifyUI& msg )
 				pTabLayoutRecord->SelectItem(0);
 			else if(name==_T("LeaveRecord"))
 				pTabLayoutRecord->SelectItem(1);
+		}
+		CTabLayoutUI* pTabLayoutDataManage = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabDataManage")));
+		if (pTabLayoutDataManage)
+		{
+			if (name==L"Visitor")
+			{
+				pTabLayoutDataManage->SelectItem(0);
+			}
+			else if (name==L"Stay")
+			{
+				pTabLayoutDataManage->SelectItem(1);
+			}
+			else if (name==L"Visited")
+			{
+				pTabLayoutDataManage->SelectItem(2);
+			}
+			else if (name==L"Blacklist")
+			{
+				pTabLayoutDataManage->SelectItem(3);
+			}
+			else if (name==L"Staffcard")
+			{
+				pTabLayoutDataManage->SelectItem(4);
+			}
+			else if (name==L"Usualcard")
+			{
+				pTabLayoutDataManage->SelectItem(5);
+			}
+			else if (name==L"Doorkeeper")
+			{
+				pTabLayoutDataManage->SelectItem(6);
+			}
+
 		}
 	}
 	else if( msg.sType == _T("click") ) {
