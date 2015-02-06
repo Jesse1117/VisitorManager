@@ -7,7 +7,7 @@
 			<Control width="3" />
 			<Option height="25" width="78" text="离开注销" name="LeaveRecord" textcolor="#FF386382" font="2" normalimage="Image\tabbar_normal.png" hotimage="Image\tabbar_hover.png" pushedimage="Image\tabbar_pushed.png" selectedimage="Image\tabbar_pushed.png" group="contenttab" />
 		</HorizontalLayout>
-		<TabLayout name="tabRecord" selectedid="0" >
+		<TabLayout name="tabRecord">
 			<VerticalLayout>
 				<HorizontalLayout>
 					<VerticalLayout width="1023"><!--左边list区域/-->

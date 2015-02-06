@@ -29,18 +29,18 @@ void CMainFrame::InitWindow()
 	PostMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
 	InitSearchCtrl();
 	AddCertitypeMsg();
-
-	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
-	CListContainerElementUI* pListItem = new CListContainerElementUI;
-	if (!m_dlgBuilder.GetMarkup()->IsValid())
-	{	
-		/*pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);*/
-		pList->Add(pListItem);
-		pListItem->SetFixedHeight(30);
-	}
-	else {
-		pListItem = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create((UINT)0, &m_PaintManager));
-	}
+	
+// 	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
+// 	CListContainerElementUI* pListItem = new CListContainerElementUI;
+// 	if (!m_dlgBuilder.GetMarkup()->IsValid())
+// 	{	
+// 		/*pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);*/
+// //		pList->Add(pListItem);
+// //		pListItem->SetFixedHeight(30);
+// 	}
+// 	else {
+// 		pListItem = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create((UINT)0, &m_PaintManager));
+// 	}
 	//pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
 	//pList->Add(pListItem);
 	//pListItem->SetFixedHeight(30);
@@ -57,10 +57,10 @@ void CMainFrame::InitWindow()
 
 CControlUI* CMainFrame::CreateControl( LPCTSTR pstrClassName )
 {
-	if(_tcscmp(pstrClassName,_T("VistorRecord"))==0)
-		return new CVisitorRecordUI(&m_PaintManager);
 	if(_tcscmp(pstrClassName,_T("DataManage"))==0)
 		return new CDataManageUI(&m_PaintManager);
+	if(_tcscmp(pstrClassName,_T("VistorRecord"))==0)
+		return new CVisitorRecordUI(&m_PaintManager);
 	return NULL;
 }
 
@@ -76,8 +76,9 @@ void CMainFrame::Notify( TNotifyUI& msg )
 		CDuiString name = msg.pSender->GetName();
 		CTabLayoutUI* pTabLayoutModule = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabModule")));
 		if(pTabLayoutModule){
-			if(name==_T("record"))
+			if(name==_T("record")){
 				pTabLayoutModule->SelectItem(0);
+			}
 			else if(name==_T("datamanage"))
 				pTabLayoutModule->SelectItem(1);
 			else if(name==_T("check"))
@@ -99,31 +100,31 @@ void CMainFrame::Notify( TNotifyUI& msg )
 		CTabLayoutUI* pTabLayoutDataManage = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tabDataManage")));
 		if (pTabLayoutDataManage)
 		{
-			if (name==L"Visitor")
+			if (name==_T("Visitor"))
 			{
 				pTabLayoutDataManage->SelectItem(0);
 			}
-			else if (name==L"Stay")
+			else if (name==_T("Stay"))
 			{
 				pTabLayoutDataManage->SelectItem(1);
 			}
-			else if (name==L"Visited")
+			else if (name==_T("Visited"))
 			{
 				pTabLayoutDataManage->SelectItem(2);
 			}
-			else if (name==L"Blacklist")
+			else if (name==_T("Blacklist"))
 			{
 				pTabLayoutDataManage->SelectItem(3);
 			}
-			else if (name==L"Staffcard")
+			else if (name==_T("Staffcard"))
 			{
 				pTabLayoutDataManage->SelectItem(4);
 			}
-			else if (name==L"Usualcard")
+			else if (name==_T("Usualcard"))
 			{
 				pTabLayoutDataManage->SelectItem(5);
 			}
-			else if (name==L"Doorkeeper")
+			else if (name==_T("Doorkeeper"))
 			{
 				pTabLayoutDataManage->SelectItem(6);
 			}
