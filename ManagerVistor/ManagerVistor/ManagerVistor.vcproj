@@ -248,13 +248,13 @@
 				>
 			</File>
 			<File
-<<<<<<< HEAD
-				RelativePath=".\ConstDataDef.h"
-=======
 				RelativePath=".\DataManageUI.h"
->>>>>>> c7ef97dd032778103dc6a776e5047f654badbeb4
 				>
 			</File>
+      <File
+        RelativePath=".\ConstDataDef.h"
+        >
+      </File>
 			<File
 				RelativePath=".\DealTime.h"
 				>
