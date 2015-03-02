@@ -9,5 +9,11 @@
 #define CERTITYPE_DRIVER_LICENSE    (_T("¼ÝÕÕ"))
 #define CERTITYPE_MILIT_OFFICER     (_T("¾ü¹ÙÖ¤"))
 #define CERTITYPE_SOLDIERS_CARD     (_T("Ê¿±øÖ¤"))
- 
+
+const WCHAR* CarPrefix[]={_T("¾©"),_T("½ò"),_T("»¦"),_T("Óå"),
+_T("Çí"),_T("Äþ"),_T("´¨"),_T("²Ø"),_T("Çà"),_T("ÔÁ"),_T("¹ó"),
+_T("Ãö"),_T("¼ª"),_T("ÉÂ"),_T("ÃÉ"),_T("½ú"),_T("¸Ê"),_T("¹ð"),
+_T("¶õ"),_T("¸Ó"),_T("Õã"),_T("ËÕ"),_T("ÐÂ"),_T("Â³"),_T("Íî"),
+_T("Ïæ"),_T("ºÚ"),_T("ÁÉ"),_T("ÔÆ"),_T("Ô¥"),_T("¼½")};
+
 #endif

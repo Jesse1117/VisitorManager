@@ -72,6 +72,8 @@ void CComboWnd::Init(CComboUI* pOwner)
     }
     
     Create(pOwner->GetManager()->GetPaintWindow(), NULL, WS_POPUP, WS_EX_TOOLWINDOW, rc);
+// 	int nFont = m_pOwner->GetListInfo()->nFont;
+// 	SetWindowFont(m_hWnd, m_pOwner->GetManager()->GetFontInfo(nFont), TRUE);
     // HACK: Don't deselect the parent's caption
     HWND hWndParent = m_hWnd;
     while( ::GetParent(hWndParent) != NULL ) hWndParent = ::GetParent(hWndParent);

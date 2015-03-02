@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<Window size="1024,666">
+<Window size="1024,898">
 		<VerticalLayout>
 				<HorizontalLayout height="25" bkcolor="#FFB8DFF2">
 					<Control width="3" />

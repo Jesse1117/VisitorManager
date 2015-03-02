@@ -170,45 +170,50 @@ void CMainFrame::InitSearchCtrl()
 
 void CMainFrame::AddCertitypeMsg()
 {
-	CListLabelElementUI* pListItem1 = new CListLabelElementUI;
-	pListItem1->SetOwner(m_pCertiTypeCombo);
-	pListItem1->SetText(CERTITYPE_SECOND_GENIDCARD);
-// 	TListInfoUI* pListInfoUI = pListItem1->GetOwner()->GetListInfo();
-// 	pListInfoUI->nFont = 2;
-	m_pCertiTypeCombo->Add(pListItem1);
-
-	CListLabelElementUI* pListItem2 = new CListLabelElementUI;
-	pListItem2->SetText(CERTITYPE_FIRST_GENIDCARD);
-	pListItem2->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem2);
-
-	CListLabelElementUI* pListItem3 = new CListLabelElementUI;
-	pListItem3->SetText(CERTITYPE_HONGKANG_PERMIT);
-	pListItem3->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem3);
-	
-	CListLabelElementUI* pListItem4 = new CListLabelElementUI;
-	pListItem4->SetText(CERTITYPE_INTERNA_PASSPORT);
-	pListItem4->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem4);
-
-	CListLabelElementUI* pListItem5 = new CListLabelElementUI;
-	pListItem5->SetText(CERTITYPE_HVPS);
-	pListItem5->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem5);
-
-	CListLabelElementUI* pListItem6 = new CListLabelElementUI;
-	pListItem6->SetText(CERTITYPE_DRIVER_LICENSE);
-	pListItem6->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem6);
-
-	CListLabelElementUI* pListItem7 = new CListLabelElementUI;
-	pListItem7->SetText(CERTITYPE_MILIT_OFFICER);
-	pListItem7->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem7);
-
-	CListLabelElementUI* pListItem8 = new CListLabelElementUI;
-	pListItem8->SetText(CERTITYPE_SOLDIERS_CARD);
-	pListItem8->SetOwner(m_pCertiTypeCombo);
-	m_pCertiTypeCombo->Add(pListItem8);
+// 	CListLabelElementUI* pListItem1 = new CListLabelElementUI;
+// 	pListItem1->SetOwner(m_pCertiTypeCombo);
+// 	pListItem1->SetText(CERTITYPE_SECOND_GENIDCARD);
+// 	m_pCertiTypeCombo->Add(pListItem1);
+// 
+// 	CListLabelElementUI* pListItem2 = new CListLabelElementUI;
+// 	pListItem2->SetText(CERTITYPE_FIRST_GENIDCARD);
+// 	pListItem2->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem2);
+// 
+// 	CListLabelElementUI* pListItem3 = new CListLabelElementUI;
+// 	pListItem3->SetText(CERTITYPE_HONGKANG_PERMIT);
+// 	pListItem3->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem3);
+// 	
+// 	CListLabelElementUI* pListItem4 = new CListLabelElementUI;
+// 	pListItem4->SetText(CERTITYPE_INTERNA_PASSPORT);
+// 	pListItem4->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem4);
+// 
+// 	CListLabelElementUI* pListItem5 = new CListLabelElementUI;
+// 	pListItem5->SetText(CERTITYPE_HVPS);
+// 	pListItem5->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem5);
+// 
+// 	CListLabelElementUI* pListItem6 = new CListLabelElementUI;
+// 	pListItem6->SetText(CERTITYPE_DRIVER_LICENSE);
+// 	pListItem6->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem6);
+// 
+// 	CListLabelElementUI* pListItem7 = new CListLabelElementUI;
+// 	pListItem7->SetText(CERTITYPE_MILIT_OFFICER);
+// 	pListItem7->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem7);
+// 
+// 	CListLabelElementUI* pListItem8 = new CListLabelElementUI;
+// 	pListItem8->SetText(CERTITYPE_SOLDIERS_CARD);
+// 	pListItem8->SetOwner(m_pCertiTypeCombo);
+// 	m_pCertiTypeCombo->Add(pListItem8);
+	for(int i=0;i<31;i++)
+	{
+		CListLabelElementUI* pListItem = new CListLabelElementUI;
+		pListItem->SetText(CarPrefix[i]);
+//		pListItem->SetOwner(m_pCarNumCombo);
+		m_pCarNumCombo->Add(pListItem);
+	}
 }
