@@ -481,7 +481,7 @@ namespace UiLib
 		return m_xml.GetLastErrorLocation(pstrSource, cchMax);
 	}
 
-	CControlUI* CDialogBuilder::	(CMarkupNode* pRoot, CControlUI* pParent, CPaintManagerUI* pManager)
+	CControlUI* CDialogBuilder::	_Parse(CMarkupNode* pRoot, CControlUI* pParent, CPaintManagerUI* pManager)
 	{
 		IContainerUI* pContainer = NULL;
 		CControlUI* pReturn = NULL;
@@ -623,6 +623,9 @@ namespace UiLib
 				case 20:
 					if( _tcscmp(pstrClass, DUI_CTR_LISTCONTAINERELEMENT) == 0 )   pControl = new CListContainerElementUI;
 					else if( _tcscmp(pstrClass, DUI_CTR_LISTIMAGETEXTELEMENT) == 0 )   pControl = new CListImageTextElementUI;					
+					break;
+				case 24:
+					if (_tcscmp(pstrClass,DUI_CTR_LISTPLUSCONTAINERELEMENT) == 0)  pControl = new CListPlusContainerElement;
 					break;
 				}
 

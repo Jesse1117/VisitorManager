@@ -285,7 +285,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////
 //
 
-class UILIB_API CListHeaderItemUI : public CControlUI
+class UILIB_API CListHeaderItemUI : public CContainerUI
 {
 public:
     CListHeaderItemUI();
@@ -300,7 +300,7 @@ public:
     void SetDragable(bool bDragable);
 	DWORD GetSepWidth() const;
     void SetSepWidth(int iWidth);
-	DWORD GetTextStyle() const;
+	DWORD GetTextStyle() const;  
     void SetTextStyle(UINT uStyle);
 	DWORD GetTextColor() const;
     void SetTextColor(DWORD dwTextColor);
@@ -327,6 +327,7 @@ public:
 
     void PaintText(HDC hDC);
     void PaintStatusImage(HDC hDC);
+	void SetPos(RECT rc);
 
 protected:
     POINT ptLastMouse;
@@ -519,22 +520,23 @@ public:
     void Invalidate(); // 直接CControl::Invalidate会导致滚动条刷新，重写减少刷新区域
     bool Activate();
 
-    void DoEvent(TEventUI& event);
+    virtual void DoEvent(TEventUI& event);
     void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue);
     void DoPaint(HDC hDC, const RECT& rcPaint);
 
     virtual void DrawItemText(HDC hDC, const RECT& rcItem);    
     virtual void DrawItemBk(HDC hDC, const RECT& rcItem);
 	void SetPos(RECT rc);
-
+	CListHeaderUI *m_pHeader;
 protected:
     int m_iIndex;
     bool m_bSelected;
     UINT m_uButtonState;
     IListOwnerUI* m_pOwner;
-
+	
 	int m_nOldCxPos;  //add by Redrain 2014.10.30
 };
+
 
 } // namespace UiLib
 

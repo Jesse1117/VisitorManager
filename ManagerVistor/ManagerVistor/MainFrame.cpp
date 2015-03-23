@@ -3,7 +3,8 @@
 #include <string.h>
 #include "VisitorRecordUI.h"
 #include "DataManageUI.h"
-#include "VisitorListUI.h"
+#include "VisitorList.h"
+#include "DataDef.h"
 using namespace std;
 
 CMainFrame::CMainFrame(LPCTSTR pszXMLName) : m_strXMLName(pszXMLName)
@@ -11,6 +12,7 @@ CMainFrame::CMainFrame(LPCTSTR pszXMLName) : m_strXMLName(pszXMLName)
 	, m_pMaxBtn(NULL)
 	, m_pMinBtn(NULL)
 	, m_pRestoreBtn(NULL)
+	,m_LastElement(NULL)
 {
 }
 
@@ -26,30 +28,22 @@ void CMainFrame::InitWindow()
 	m_pMinBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("minbtn")));
 	m_pRestoreBtn = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("restorebtn")));
 	PostMessage(WM_SYSCOMMAND, SC_MAXIMIZE, 0);
-	CListUI* pList = static_cast<CListUI*>(m_PaintManager.FindControl(L"VisitorList"));
-	CListContainerElementUI* pListItem = new CListContainerElementUI;
-	if (!m_dlgBuilder.GetMarkup()->IsValid())
-	{	
-		/*pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);*/
-		pList->Add(pListItem);
-		pListItem->SetFixedHeight(30);
-	}
-	else {
-		pListItem = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create((UINT)0, &m_PaintManager));
-	}
-	//pListItem = (CListContainerElementUI*)(m_dlgBuilder.Create(L"VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager);
-	//pList->Add(pListItem);
-	//pListItem->SetFixedHeight(30);
-	//CListContainerElementUI* pListItem =  NULL;
+	CVisitorList* pList = static_cast<CVisitorList*>(m_PaintManager.FindControl(_T("Visitors")));	
+	VisitorListInfo info2;
+	CListPlusContainerElement* pListItem = NULL;
+	pListItem = static_cast<CListPlusContainerElement*>(m_dlgBuilder.Create(_T("xmls\\VisitorList_item.xml"),(UINT)0,NULL,&m_PaintManager));
+	pList->InsertItem(pList->GetCount(),70,pListItem);
+	info2.strName=_T("ÄãÀÏÆÅ");
+	info2.strGender=_T("Å®");
+	info2.strPhotoPath=_T("file='Image/woman.jpg' source='50,0,270,280' dest='5,5,50,50'");
 
-	//CListHeaderItemUI* pListHeaderItem = new CListHeaderItemUI;
-	//pList->Add(pListHeaderItem);
-	//pListHeaderItem->SetText(L"ÐÕÃû");
-	//pListHeaderItem->SetFixedWidth(40);
-	//pListHeaderItem->SetFixedHeight(30);
-	//pListHeaderItem->SetSepWidth(1);
-	//pListHeaderItem->SetHotImage(L"Image\list_header_hot.png");
-}
+	//CListPlusContainerElement* pListItem1= new CListPlusContainerElement;
+	//pList->InsertItem(pList->GetCount(),70,pListItem1);
+	for (int i=0;i<100;i++)
+	{
+		pList->AddVisitorInfo(info2,_T("xmls\\VisitorList_item.xml"));
+	}
+}	
 
 CControlUI* CMainFrame::CreateControl( LPCTSTR pstrClassName )
 {
@@ -138,5 +132,15 @@ void CMainFrame::Notify( TNotifyUI& msg )
 		else if( msg.pSender == m_pRestoreBtn ) { 
 			SendMessage(WM_SYSCOMMAND, SC_RESTORE, 0); return; 
 		}
+
+	}
+	else if (msg.sType==DUI_MSGTYPE_ITEMCLICK)
+	{
+		if (m_LastElement&&m_LastElement!=msg.pSender)
+		{
+			m_LastElement->SetFixedHeight(70);
+		}
+		m_LastElement = (CListPlusContainerElement*)msg.pSender;
+		m_LastElement->SetFixedHeight(m_LastElement->m_BigCy);
 	}
 }

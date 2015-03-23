@@ -34,5 +34,7 @@ protected:
 
 private:
 	CDialogBuilder m_dlgBuilder;
+
+	CListPlusContainerElement* m_LastElement;
 };
 

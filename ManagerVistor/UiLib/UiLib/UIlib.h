@@ -94,9 +94,11 @@
 #include "Control/UIActiveX.h"
 #include "Control/UIWebBrowser.h"
 #include "Control/UIFlash.h"
+#include "Control/ListPlusContainerElement.h"
 
 #include "Utils/WinImplBase.h"
 #include "Utils/IWindowBase.h"
+
 
 namespace DuiLib = UiLib;
 #endif // UIlib_h__

@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Window>
-	<ListContainerElement>
-		<VerticalLayout>
+	<ListPlusContainerElement>
+		
+		<VerticalLayout name="checkbox" width="40" sepwidth="1" >
 			<HorizontalLayout height="70">
-					<VerticalLayout width="100">
-						<Button name="photo"  pos="20,5,0,0" float="true"  width="60" height="60" bkimage="Image\man_big.png" />
-					</VerticalLayout>
-					<VerticalLayout>
-						<Label name="Visitorname" text="张三" width  />
-					</VerticalLayout>
-			</HorizontalLayout>	
-			<HorizontalLayout name="operation" height="30" visible="false">
-				
+					<CheckBox name="selall" pos="9,25,0,0" width="20" height="20" float="true"  selectedimage="file='Image/checkbox_p.png' dest='0,2,15,17'" normalimage="file='Image/checkbox_h.png' dest='0,2,15,17'" />															
+			</HorizontalLayout>
+			<HorizontalLayout height="30" >
+					<Button name="Delete" pos="10,5,0,0" float="true" width="20" height="20" bkimage="Image\delete.png"/>
 			</HorizontalLayout>
 		</VerticalLayout>
-	</ListContainerElement>
+		<VerticalLayout width="100">
+			<Button name="Photo"  pos="20,5,0,0" float="true" width="60" height="60" bkimage="file='Image\man_big.png' corner='1,1,1,1' "  />
+		</VerticalLayout>
+		<VerticalLayout width="50" >
+			<HorizontalLayout height="70">
+    			<Label name="Visitorname"  text="张无忌" textcolor="#00000000" endellipsis="true"  font="2" align="left"  height="70" />
+    		</HorizontalLayout>
+		</VerticalLayout>
+		<VerticalLayout width="40">
+			<HorizontalLayout height="70">
+			<Label name="Gender" font="2" align="center" height="70"/>
+			</HorizontalLayout>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="VisitorNum" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="IDCardNum" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="200">
+			<Label name="Address" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="CarNum" font="2" align="left" height="70"/>	
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="PhoneNum" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="VisitReason" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="VisitCount" font="2" align="center" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="VisitTime" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="LeaveTime" font="2" align="left" height="70"/>
+		</VerticalLayout>
+		<VerticalLayout width="100">
+			<Label name="IsLeaved" font="2" align="center" height="70"/>
+		</VerticalLayout>
+
+	</ListPlusContainerElement>
 </Window>	

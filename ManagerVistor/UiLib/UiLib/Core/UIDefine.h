@@ -75,7 +75,8 @@ namespace UiLib
 #define DUI_MSGTYPE_VALUECHANGED_MOVE       (_T("movevaluechanged"))
 
 #define DUI_MSGTYPE_SELECTCHANGED			(_T("selectchanged"))
-#define DUI_MSGTYPE_HEADWIDTHCHANGED		(_T("headerwidthchanged"))	
+#define DUI_MSGTYPE_HEADWIDTHCHANGED		(_T("headerwidthchanged"))
+                                                       
 
 
 	//////////////////////////////////////////////////////////////////////////
@@ -269,7 +270,7 @@ protected:                                                                \
 #define  DUI_CTR_ANIMATIONTABLAYOUT				 (_T("AnimationTabLayout"))
 #define  DUI_CTR_LISTCONTAINERELEMENT            (_T("ListContainerElement"))
 #define  DUI_CTR_LISTIMAGETEXTELEMENT            (_T("ListImageTextElement"))
-
+#define  DUI_CTR_LISTPLUSCONTAINERELEMENT   (_T("ListPlusContainerElement"))
 	///
 	//////////////END控件名称宏定义//////////////////////////////////////////////////
 

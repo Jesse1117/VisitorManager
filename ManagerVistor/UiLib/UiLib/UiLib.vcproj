@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="E:\Boost\boost_1_55_0\;.\"
+				AdditionalIncludeDirectories="E:\Boost\boost_1_55_0;.\"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;UILIB_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -118,7 +118,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="E:\Boost\boost_1_55_0\boost_1_55_0;.\"
+				AdditionalIncludeDirectories="E:\Boost\boost_1_55_0;.\"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;UILIB_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -139,7 +139,7 @@
 				Name="VCLinkerTool"
 				OutputFile="../dll/UiLib_u.dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="E:\Boost\boost_1_55_0\boost_1_55_0\stage\lib"
+				AdditionalLibraryDirectories="E:\Boost\boost_1_55_0\stage\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -178,6 +178,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\Control\ListPlusContainerElement.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\stdafx.cpp"
 				>
@@ -404,6 +408,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Control\ListPlusContainerElement.h"
+				>
+			</File>
 			<File
 				RelativePath=".\stdafx.h"
 				>
