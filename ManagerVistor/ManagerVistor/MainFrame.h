@@ -56,5 +56,6 @@ private:
 	void AddCertitypeMsg();
 private:
 	CDialogBuilder m_dlgBuilder;
+	CListPlusContainerElement* m_LastElement;
 };
 

@@ -182,6 +182,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DataManage.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DataManageUI.cpp"
 				>
 			</File>
@@ -195,6 +199,18 @@
 			</File>
 			<File
 				RelativePath=".\ExcelImpExp.cpp"
+				>
+			</File>
+      <File
+        RelativePath=".\DoorKeeper.cpp"
+        >
+      </File>
+			<File
+				RelativePath=".\LANCommunicate.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ListPlusUI.cpp"
 				>
 			</File>
 			<File
@@ -226,7 +242,15 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\VisitorListUI.cpp"
+				RelativePath=".\VisitorInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorList.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorManageControl.cpp"
 				>
 			</File>
 			<File
@@ -244,6 +268,10 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\CDuiMenu.h"
+				>
+			</File>
+			<File
 				RelativePath=".\CommonConvert.h"
 				>
 			</File>
@@ -253,6 +281,14 @@
 			</File>
 			<File
 				RelativePath=".\ConstDataDef.h"
+				>
+			</File>
+      <File
+        RelativePath=".\DataDef.h"
+        >
+      </File>
+			<File
+				RelativePath=".\DataManage.h"
 				>
 			</File>
 			<File
@@ -269,6 +305,18 @@
 			</File>
 			<File
 				RelativePath=".\ExcelImpExp.h"
+				>
+			</File>
+      <File
+        RelativePath=".\DoorKeeper.h"
+        >   
+      </File>
+			<File
+				RelativePath=".\LANCommunicate.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ListPlusUI.h"
 				>
 			</File>
 			<File
@@ -292,7 +340,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\VisitorListUI.h"
+				RelativePath=".\VisitorInfo.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorList.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorManageControl.h"
 				>
 			</File>
 			<File

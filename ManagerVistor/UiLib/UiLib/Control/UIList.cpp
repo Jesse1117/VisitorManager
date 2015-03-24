@@ -1440,7 +1440,7 @@ namespace UiLib {
 	LPVOID CListHeaderItemUI::GetInterface(LPCTSTR pstrName)
 	{
 		if( _tcscmp(pstrName, DUI_CTR_LISTHEADERITEM) == 0 ) return this;
-		return CControlUI::GetInterface(pstrName);
+		return CContainerUI::GetInterface(pstrName);
 	}
 
 	UINT CListHeaderItemUI::GetControlFlags() const
@@ -1451,7 +1451,7 @@ namespace UiLib {
 
 	void CListHeaderItemUI::SetEnabled(bool bEnable)
 	{
-		CControlUI::SetEnabled(bEnable);
+		CContainerUI::SetEnabled(bEnable);
 		if( !IsEnabled() ) {
 			m_uButtonState = 0;
 		}
@@ -1628,14 +1628,14 @@ namespace UiLib {
 		else if( _tcscmp(pstrName, _T("pushedimage")) == 0 ) SetPushedImage(pstrValue);
 		else if( _tcscmp(pstrName, _T("focusedimage")) == 0 ) SetFocusedImage(pstrValue);
 		else if( _tcscmp(pstrName, _T("sepimage")) == 0 ) SetSepImage(pstrValue);
-		else CControlUI::SetAttribute(pstrName, pstrValue);
+		else CContainerUI::SetAttribute(pstrName, pstrValue);
 	}
 
 	void CListHeaderItemUI::DoEvent(TEventUI& event)
 	{
 		if( !IsMouseEnabled() && event.Type > UIEVENT__MOUSEBEGIN && event.Type < UIEVENT__MOUSEEND ) {
 			if( m_pParent != NULL ) m_pParent->DoEvent(event);
-			else CControlUI::DoEvent(event);
+			else CContainerUI::DoEvent(event);
 			return;
 		}
 
@@ -1732,13 +1732,13 @@ namespace UiLib {
 			}
 			return;
 		}
-		CControlUI::DoEvent(event);
+		CContainerUI::DoEvent(event);
 	}
 
 	SIZE CListHeaderItemUI::EstimateSize(SIZE szAvailable)
 	{
 		if( m_cxyFixed.cy == 0 ) return CSize(m_cxyFixed.cx, m_pManager->GetDefaultFontInfo()->tm.tmHeight + 14);
-		return CControlUI::EstimateSize(szAvailable);
+		return CContainerUI::EstimateSize(szAvailable);
 	}
 
 	RECT CListHeaderItemUI::GetThumbRect() const
@@ -1801,6 +1801,127 @@ namespace UiLib {
 		else
 			CRenderEngine::DrawText(hDC, m_pManager, rcText, m_sText, m_dwTextColor, \
 			m_iFont, DT_SINGLELINE | m_uTextStyle);
+	}
+
+	void CListHeaderItemUI::SetPos(RECT rc)
+	{
+		CContainerUI::SetPos(rc);
+		rc = m_rcItem;
+
+		// Adjust for inset
+		rc.left += m_rcInset.left;
+		rc.top += m_rcInset.top;
+		rc.right -= m_rcInset.right;
+		rc.bottom -= m_rcInset.bottom;
+
+		if( m_items.GetSize() == 0) {
+			ProcessScrollBar(rc, 0, 0);
+			return;
+		}
+
+		if( m_pVerticalScrollBar && m_pVerticalScrollBar->IsVisible() ) rc.right -= m_pVerticalScrollBar->GetFixedWidth();
+		if( m_pHorizontalScrollBar && m_pHorizontalScrollBar->IsVisible() ) rc.bottom -= m_pHorizontalScrollBar->GetFixedHeight();
+
+		// Determine the width of elements that are sizeable
+		SIZE szAvailable = { rc.right - rc.left, rc.bottom - rc.top };
+		if( m_pHorizontalScrollBar && m_pHorizontalScrollBar->IsVisible() ) 
+			szAvailable.cx += m_pHorizontalScrollBar->GetScrollRange();
+
+		int nAdjustables = 0;
+		int cxFixed = 0;
+		int nEstimateNum = 0;
+		for( int it1 = 0; it1 < m_items.GetSize(); it1++ ) {
+			CContainerUI* pControl = static_cast<CContainerUI*>(m_items[it1]);
+			if( !pControl->IsVisible() ) continue;
+			if( pControl->IsFloat() ) continue;
+			SIZE sz = pControl->EstimateSize(szAvailable);
+			if( sz.cx == 0 ) {
+				nAdjustables++;
+			}
+			else {
+				if( sz.cx < pControl->GetMinWidth() ) sz.cx = pControl->GetMinWidth();
+				if( sz.cx > pControl->GetMaxWidth() ) sz.cx = pControl->GetMaxWidth();
+			}
+			cxFixed += sz.cx +  pControl->GetPadding().left + pControl->GetPadding().right;
+			nEstimateNum++;
+		}
+		cxFixed += (nEstimateNum - 1) * m_iChildPadding;
+
+		int cxExpand = 0;
+		int cxNeeded = 0;
+		if( nAdjustables > 0 ) cxExpand = MAX(0, (szAvailable.cx - cxFixed) / nAdjustables);
+		// Position the elements
+		SIZE szRemaining = szAvailable;
+		int iPosX = rc.left;
+		if( m_pHorizontalScrollBar && m_pHorizontalScrollBar->IsVisible() ) {
+			iPosX -= m_pHorizontalScrollBar->GetScrollPos();
+		}
+		int iAdjustable = 0;
+		int cxFixedRemaining = cxFixed;
+		for( int it2 = 0; it2 < m_items.GetSize(); it2++ ) {
+			CContainerUI* pControl = static_cast<CContainerUI*>(m_items[it2]);
+			if( !pControl->IsVisible() ) continue;
+			if( pControl->IsFloat() ) {
+				SetFloatPos(it2);
+				continue;
+			}
+			RECT rcPadding = pControl->GetPadding();
+			szRemaining.cx -= rcPadding.left;
+			SIZE sz = pControl->EstimateSize(szRemaining);
+			if( sz.cx == 0 ) {
+				iAdjustable++;
+				sz.cx = cxExpand;
+				// Distribute remaining to last element (usually round-off left-overs)
+				if( iAdjustable == nAdjustables ) {
+					sz.cx = MAX(0, szRemaining.cx - rcPadding.right - cxFixedRemaining);
+				}
+				if( sz.cx < pControl->GetMinWidth() ) sz.cx = pControl->GetMinWidth();
+				if( sz.cx > pControl->GetMaxWidth() ) sz.cx = pControl->GetMaxWidth();
+			}
+			else {
+				if( sz.cx < pControl->GetMinWidth() ) sz.cx = pControl->GetMinWidth();
+				if( sz.cx > pControl->GetMaxWidth() ) sz.cx = pControl->GetMaxWidth();
+
+				cxFixedRemaining -= sz.cx;
+			}
+
+			sz.cy = pControl->GetFixedHeight();
+			if( sz.cy == 0 ) sz.cy = rc.bottom - rc.top - rcPadding.top - rcPadding.bottom;
+			if( sz.cy < 0 ) sz.cy = 0;
+			if( sz.cy < pControl->GetMinHeight() ) sz.cy = pControl->GetMinHeight();
+			if( sz.cy > pControl->GetMaxHeight() ) sz.cy = pControl->GetMaxHeight();
+
+			RECT rcCtrl = { iPosX + rcPadding.left, rc.top + rcPadding.top, iPosX + sz.cx + rcPadding.left + rcPadding.right, rc.top + rcPadding.top + sz.cy};
+			pControl->SetPos(rcCtrl);
+			iPosX += sz.cx + m_iChildPadding + rcPadding.left + rcPadding.right;
+			cxNeeded += sz.cx + rcPadding.left + rcPadding.right;
+			szRemaining.cx -= sz.cx + m_iChildPadding + rcPadding.right;
+		}
+		cxNeeded += (nEstimateNum - 1) * m_iChildPadding;
+
+		if( m_pHorizontalScrollBar != NULL ) {
+			if( cxNeeded > rc.right - rc.left ) {
+				if( m_pHorizontalScrollBar->IsVisible() ) {
+					m_pHorizontalScrollBar->SetScrollRange(cxNeeded - (rc.right - rc.left));
+				}
+				else {
+					m_pHorizontalScrollBar->SetVisible(true);
+					m_pHorizontalScrollBar->SetScrollRange(cxNeeded - (rc.right - rc.left));
+					m_pHorizontalScrollBar->SetScrollPos(0);
+					rc.bottom -= m_pHorizontalScrollBar->GetFixedHeight();
+				}
+			}
+			else {
+				if( m_pHorizontalScrollBar->IsVisible() ) {
+					m_pHorizontalScrollBar->SetVisible(false);
+					m_pHorizontalScrollBar->SetScrollRange(0);
+					m_pHorizontalScrollBar->SetScrollPos(0);
+					rc.bottom += m_pHorizontalScrollBar->GetFixedHeight();
+				}
+			}
+		}
+		// Process the scrollbar
+		ProcessScrollBar(rc, cxNeeded, 0);
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -3010,6 +3131,7 @@ namespace UiLib {
 				Select();
 				Invalidate();
 			}
+
 			return;
 		}
 		if( event.Type == UIEVENT_BUTTONUP ) 
@@ -3088,7 +3210,10 @@ namespace UiLib {
 			rcItem.bottom -= pInfo->rcTextPadding.bottom;
 
 			CControlUI* pControl = GetItemAt(i);
-			pControl->SetPos(rcItem);
+			if (pControl!=NULL)
+			{
+				pControl->SetPos(rcItem);
+			}
 		}
 		
 		return;
@@ -3154,71 +3279,64 @@ namespace UiLib {
 
 	void CListContainerElementUI::SetPos(RECT rc)
 	{	
-		/*CHorizontalLayoutUI::SetPos(rc);
-		if( m_pOwner == NULL ) return;		
+		CControlUI::SetPos(rc);  
+		rc = m_rcItem;  
 
-		CListUI* pList = static_cast<CListUI*>(m_pOwner);
-		if (pList == NULL) return;
+		// Adjust for inset  
+		rc.left += m_rcInset.left;  
+		rc.top += m_rcInset.top;  
+		rc.right -= m_rcInset.right;  
+		rc.bottom -= m_rcInset.bottom;  
 
-		TListInfoUI* pInfo = pList->GetListInfo();	
-		int nNewCxPos = pList->GetScrollPos().cx;
+		TListInfoUI *plistinfo = GetOwner()->GetListInfo();  
 
-		int nExcursion = nNewCxPos - m_nOldCxPos;
+		// Determine the width of elements that are sizeable  
+		SIZE szAvailable = { rc.right - rc.left, rc.bottom - rc.top };  
 
-		int nCount = m_items.GetSize();
-		for (int i = 0; i < nCount; i++)
-		{
-			CControlUI *pListItem = static_cast<CControlUI*>(m_items[i]);
+		for( int it2 = 0; it2 < m_items.GetSize(); it2++ )  
+		{  
+			CControlUI* pControl = static_cast<CControlUI*>(m_items[it2]);  
+			if( !pControl->IsVisible() )   
+				continue;  
+			if( pControl->IsFloat() )   
+			{  
+				SetFloatPos(it2);  
+				continue;  
+			}  
+			RECT rcPadding = pControl->GetPadding();  
+			SIZE sz = pControl->EstimateSize(szAvailable);  
+			if( sz.cx == 0 )   
+			{  
+				if( sz.cx < pControl->GetMinWidth() )   
+					sz.cx = pControl->GetMinWidth();  
+				if( sz.cx > pControl->GetMaxWidth() )   
+					sz.cx = pControl->GetMaxWidth();  
+			}  
+			else   
+			{  
+				if( sz.cx < pControl->GetMinWidth() )   
+					sz.cx = pControl->GetMinWidth();  
+				if( sz.cx > pControl->GetMaxWidth() )  
+					sz.cx = pControl->GetMaxWidth();  
+			}  
 
-			if (pListItem != NULL && pInfo->rcColumn[i].left != 0 && pInfo->rcColumn[i].right != 0)
-			{
-				RECT rt = pListItem->GetPos();
-				rt.left = pInfo->rcColumn[i].left - nExcursion;
-				rt.right = pInfo->rcColumn[i].right - nExcursion;
-				pListItem->SetPos(rt);
-			}
-		}
-
-		m_nOldCxPos = nNewCxPos;*/
-		if( m_pOwner == NULL ) return;
-		TListInfoUI* pInfo = m_pOwner->GetListInfo();
-		int iChangeIndex=0;
-		LONG cx = 0;
-		for( int i = 0; i < pInfo->nColumns; i++ )
-		{
-			CControlUI* pControl = GetItemAt(i);
-			if(!pControl) break;
-			RECT rcOldItem = pControl->GetPos();
-			if(pInfo->rcColumn[i].right-rcOldItem.right!=0){
-				iChangeIndex =i;
-				cx=pInfo->rcColumn[i].right-rcOldItem.right;
-				break;
-
-			}
-
-
-		}
-		RECT rcNew = {rc.left,rc.top,rc.right+cx,rc.bottom};
-		CControlUI::SetPos(rcNew);
-		if( m_items.IsEmpty() ) return;
-		rcNew.left += m_rcInset.left;
-		rcNew.top += m_rcInset.top;
-		rcNew.right -= m_rcInset.right;
-		rcNew.bottom -= m_rcInset.bottom;
+			sz.cy = pControl->GetFixedHeight();  
+			if( sz.cy == 0 )   
+				sz.cy = rc.bottom - rc.top - rcPadding.top - rcPadding.bottom;  
+			if( sz.cy < 0 )   
+				sz.cy = 0;  
+			if( sz.cy < pControl->GetMinHeight() )   
+				sz.cy = pControl->GetMinHeight();  
+			if( sz.cy > pControl->GetMaxHeight() )   
+				sz.cy = pControl->GetMaxHeight();  
 
 
-		for( int it = 0; it < m_items.GetSize(); it++ ) {
-			CControlUI* pControl = static_cast<CControlUI*>(m_items[it]);
-			if( !pControl->IsVisible() ) continue;
-			if( pControl->IsFloat() ) {
-				if(it>=iChangeIndex){
-					RECT rcItem = { pInfo->rcColumn[it].left, m_rcItem.top, pInfo->rcColumn[it].right, m_rcItem.bottom };
-					pControl->SetPos(rcItem);
-				}
-			}
-			else {
-				pControl->SetPos(rcNew); // 所有非float子控件放大到整个客户区
-			}
-		}
+			RECT rcCtrl = { plistinfo->rcColumn[it2].left + rcPadding.left,  
+				rc.top + rcPadding.top,  
+				plistinfo->rcColumn[it2].right + rcPadding.left,   
+				rc.top + sz.cy + rcPadding.top + rcPadding.bottom };  
+			pControl->SetPos(rcCtrl);  
+		}  
 	}
+
 } // namespace UiLib

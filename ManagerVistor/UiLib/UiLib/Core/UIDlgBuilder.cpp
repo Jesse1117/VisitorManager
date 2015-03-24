@@ -625,6 +625,9 @@ namespace UiLib
 					if( _tcscmp(pstrClass, DUI_CTR_LISTCONTAINERELEMENT) == 0 )   pControl = new CListContainerElementUI;
 					else if( _tcscmp(pstrClass, DUI_CTR_LISTIMAGETEXTELEMENT) == 0 )   pControl = new CListImageTextElementUI;					
 					break;
+				case 24:
+					if (_tcscmp(pstrClass,DUI_CTR_LISTPLUSCONTAINERELEMENT) == 0)  pControl = new CListPlusContainerElement;
+					break;
 				}
 
 				// User-supplied control factory
