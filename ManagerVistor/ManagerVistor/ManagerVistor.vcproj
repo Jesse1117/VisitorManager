@@ -194,6 +194,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ExcelImpExp.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MainFrame.cpp"
 				>
 			</File>
@@ -248,19 +252,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ConstDataDef.h"
+				>
+			</File>
+			<File
 				RelativePath=".\DataManageUI.h"
 				>
 			</File>
-      <File
-        RelativePath=".\ConstDataDef.h"
-        >
-      </File>
 			<File
 				RelativePath=".\DealTime.h"
 				>
 			</File>
 			<File
 				RelativePath=".\DoFile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ExcelImpExp.h"
 				>
 			</File>
 			<File
