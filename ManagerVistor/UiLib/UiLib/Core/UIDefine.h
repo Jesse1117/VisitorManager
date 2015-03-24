@@ -244,6 +244,7 @@ protected:                                                                \
 #define  DUI_CTR_CHECKBOX                        (_T("CheckBox"))
 #define  DUI_CTR_COMBOBOX                        (_T("ComboBox"))
 #define  DUI_CTR_DATETIME                        (_T("DateTime"))
+//#define  DUI_CTR_MYDATETIME                      (_T("MyDateTime"))
 #define  DUI_CTR_TREEVIEW                        (_T("TreeView"))
 #define  DUI_CTR_TREENODE                        (_T("TreeNode"))
 
