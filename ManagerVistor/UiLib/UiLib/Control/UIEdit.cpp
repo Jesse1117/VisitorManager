@@ -595,6 +595,9 @@ MatchFailed:
 	{
 		m_sSrcTipValue	= pStrTipValue;
 		m_sTipValue		= CDuiString(_T("__IsTipValue__"))+pStrTipValue;
+		//////////////////////////控件初始化显示
+		if(GetTipValue().GetLength() > 0 && GetText().GetLength() == 0)
+			SetText(GetSrcTipValue());
 	}
 
 	void CEditUI::SetTipValueColor( LPCTSTR pStrColor )

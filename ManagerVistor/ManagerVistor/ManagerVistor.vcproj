@@ -276,6 +276,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ConstDataDef.h"
+				>
+			</File>
+			<File
 				RelativePath=".\DataDef.h"
 				>
 			</File>

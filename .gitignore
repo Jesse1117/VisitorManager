@@ -12,14 +12,12 @@ Thumbs.db
 *.suo
 *.sln.docstates
 *.tlb
-*.tlh
 *.bak
 *.cache
 *.ilk
 *.log
 [Bb]in
 [Dd]ebug*/
-*.lib
 *.sbr
 obj/
 [Rr]elease*/

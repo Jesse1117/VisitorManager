@@ -31,10 +31,31 @@ protected:
 	CControlUI* m_pMinBtn;
 	CControlUI* m_pMaxBtn;
 	CControlUI* m_pRestoreBtn;
-
+private:
+	//recordUI¿Ø¼þ
+	CComboUI* m_pCertiTypeCombo;
+	CEditUI* m_pCertiNumEdit;
+	CEditUI* m_pVistorNameEdit;
+	CComboUI* m_pSexCombo;
+	CEditUI* m_pCardNumEdit;
+	CEditUI* m_pAddressEdit;
+	CComboUI* m_pCarNumCombo;
+	CEditUI* m_pCarNumEdit;
+	CComboUI* m_pCarTypeCombo;
+	CButtonUI* m_pAddCarTypeBtn;
+	CEditUI* m_pVistorUnitEdit;
+	CEditUI* m_pVistorPhoneNumEdit;
+	CComboUI* m_pVistorNumCombo;
+	CButtonUI* m_pAddVistorBtn;
+	CDateTimeUI* m_pLeaveDate;
+	CDateTimeUI* m_pLeaveTime;
+	CComboUI* m_pBatchCombo;
+	CButtonUI* m_pAddBatchBtn;
+private:
+	void InitSearchCtrl();
+	void AddCertitypeMsg();
 private:
 	CDialogBuilder m_dlgBuilder;
-
 	CListPlusContainerElement* m_LastElement;
 };
 

@@ -8,3 +8,4 @@ CLANCommunicate::CLANCommunicate(void)
 CLANCommunicate::~CLANCommunicate(void)
 {
 }
+
