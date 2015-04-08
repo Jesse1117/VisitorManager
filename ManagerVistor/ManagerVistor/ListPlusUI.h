@@ -12,7 +12,7 @@ public:
 	CListPlusUI();
 	~CListPlusUI();
 
-	void DoEvent(TEventUI& event);
+	//void DoEvent(TEventUI& event);
 
 	/* 获取某一行的Element指针  iIndex：行号*/
 	CListContainerElementUI* GetListItem(int iIndex);

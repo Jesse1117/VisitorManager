@@ -9,13 +9,13 @@ CVisitorList::~CVisitorList(void)
 {
 }
 
-void CVisitorList::Notify(TNotifyUI& msg)
-{
-	if (msg.sType==DUI_MSGTYPE_CLICK)
-	{
-		POINT pt = msg.ptMouse;
-	}
-}
+//void CVisitorList::Notify(TNotifyUI& msg)
+//{
+//	//if (msg.sType==DUI_MSGTYPE_CLICK)
+//	//{
+//	//	POINT pt = msg.ptMouse;
+//	//}
+//}
 
 BOOL CVisitorList::AddVisitorInfo(VisitorListInfo info,LPCTSTR StrXmlPath)
 {

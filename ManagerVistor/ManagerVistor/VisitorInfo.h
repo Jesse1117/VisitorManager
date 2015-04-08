@@ -36,6 +36,9 @@ public:
 	CDuiString GetLeaveTime()const {return m_strLeaveTime;}
 	void SetLeaveTime(const CDuiString& strLeaveTime){m_strLeaveTime = strLeaveTime;}
 
+	CDuiString GetVisitPersonNum() const {return m_strVisitPersonNum;}
+	void SetVisitPersonNum(const CDuiString& strVisitPersonNum){m_strVisitPersonNum = strVisitPersonNum;}
+
 	int GetCardType()const {return m_icardtype;}
 	void SetCardType(const int cardtype){m_icardtype = cardtype;}
 
@@ -64,6 +67,7 @@ private:
 	CDuiString m_strVisitReason;
 	CDuiString m_strVisitTime;
 	CDuiString m_strLeaveTime;
+	CDuiString m_strVisitPersonNum;
 	int m_icardtype;
 	bool m_isLeave;
 	bool m_isAppointment;

@@ -116,6 +116,7 @@ namespace UiLib
 		if( m_nScrollPos < 0 ) m_nScrollPos = 0;
 		if( m_nScrollPos > m_nRange ) m_nScrollPos = m_nRange;
 		SetPos(m_rcItem);
+
 	}
 
 	int CScrollBarUI::GetLineSize() const
@@ -625,11 +626,40 @@ namespace UiLib
 				if( !m_bHorizontal ) {
 					m_nLastScrollOffset = (event.ptMouse.y - ptLastMouse.y) * m_nRange / \
 						(m_rcItem.bottom - m_rcItem.top - m_rcThumb.bottom + m_rcThumb.top - 2 * m_cxyFixed.cx);
+					if( event.ptMouse.y < ptLastMouse.y ) {
+						if( m_pOwner != NULL ) {
+							SIZE sz = m_pOwner->GetScrollPos();
+							sz.cy = m_nLastScrollPos+m_nLastScrollOffset;
+							m_pOwner->SetScrollPos(sz);						
+						}		
+					}
+					else if ( event.ptMouse.y >ptLastMouse.y ){  
+						if( m_pOwner != NULL ) {
+							SIZE sz = m_pOwner->GetScrollPos();
+							sz.cy = m_nLastScrollPos+m_nLastScrollOffset;
+							m_pOwner->SetScrollPos(sz);						
+						}					
+					}
 				}
 				else {
 					m_nLastScrollOffset = (event.ptMouse.x - ptLastMouse.x) * m_nRange / \
 						(m_rcItem.right - m_rcItem.left - m_rcThumb.right + m_rcThumb.left - 2 * m_cxyFixed.cy);
+					if( event.ptMouse.x < ptLastMouse.x ) {
+						if( m_pOwner != NULL ) {
+							SIZE sz = m_pOwner->GetScrollPos();
+							sz.cx = m_nLastScrollPos+m_nLastScrollOffset;
+							m_pOwner->SetScrollPos(sz);						
+						}	
+					}
+					else if ( event.ptMouse.x > ptLastMouse.x ){
+							if( m_pOwner != NULL ) {
+							SIZE sz = m_pOwner->GetScrollPos();
+							sz.cx = m_nLastScrollPos+m_nLastScrollOffset;
+							m_pOwner->SetScrollPos(sz);						
+						}	                 
+					}
 				}
+				//Invalidate();
 			}
 			else {
 				if( (m_uThumbState & UISTATE_HOT) != 0 ) {

@@ -1,12 +1,15 @@
 #pragma once
-#include "VisitorInfo.h"
+class CVisitorInfo;
+class CConectToMySql;
 class CDataManage
 {
 public:
 	CDataManage(void);
 	~CDataManage(void);
 
-	bool IsAppointment(const CVisitorInfo& info);
-	bool SaveVisitorInfo(const CVisitorInfo& info);
-		
+	BOOL IsAppointment(const CVisitorInfo& info);
+	BOOL UpdateVisitorInfo(const CVisitorInfo& info);
+	
+private:
+	CConectToMySql* m_MySql;
 };

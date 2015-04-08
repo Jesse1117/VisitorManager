@@ -179,6 +179,10 @@ void CMainFrame::Notify( TNotifyUI& msg )
 		m_LastElement = (CListPlusContainerElement*)msg.pSender;
 		m_LastElement->SetFixedHeight(m_LastElement->m_BigCy);
 	}
+	else if (msg.sType==DUI_MSGTYPE_SCROLL)
+	{
+		CVisitorList* pList = static_cast<CVisitorList*>(m_PaintManager.FindControl(_T("Visitors")));	
+	}
 }
 
 void CMainFrame::InitSearchCtrl()

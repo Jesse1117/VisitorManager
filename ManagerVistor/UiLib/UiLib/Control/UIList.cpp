@@ -345,6 +345,7 @@ namespace UiLib {
 				}
 				return;
 				break;
+			}
 			case UIEVENT_SCROLLWHEEL:
 				{
 					switch( LOWORD(event.wParam) )
@@ -363,7 +364,7 @@ namespace UiLib {
 				}
 				break;
 
-			}
+
 		}
 		CVerticalLayoutUI::DoEvent(event);
 	}
@@ -3338,5 +3339,7 @@ namespace UiLib {
 			pControl->SetPos(rcCtrl);  
 		}  
 	}
+
+
 
 } // namespace UiLib

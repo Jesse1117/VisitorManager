@@ -202,6 +202,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ExcelInterface.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\LANCommunicate.cpp"
 				>
 			</File>
@@ -247,6 +251,10 @@
 			</File>
 			<File
 				RelativePath=".\VisitorManageControl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorRecord.cpp"
 				>
 			</File>
 			<File
@@ -304,6 +312,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ExcelInterface.h"
+				>
+			</File>
+			<File
 				RelativePath=".\LANCommunicate.h"
 				>
 			</File>
@@ -341,6 +353,10 @@
 			</File>
 			<File
 				RelativePath=".\VisitorManageControl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VisitorRecord.h"
 				>
 			</File>
 			<File

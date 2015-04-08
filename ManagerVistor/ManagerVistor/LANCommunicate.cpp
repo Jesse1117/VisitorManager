@@ -9,3 +9,7 @@ CLANCommunicate::~CLANCommunicate(void)
 {
 }
 
+BOOL CLANCommunicate::DoVideoVerification(CDuiString strStaffNum)
+{
+	return TRUE;
+}

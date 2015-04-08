@@ -10,20 +10,24 @@ using namespace UiLib;
 	{
 	}
 
-	void CListPlusUI::DoEvent(TEventUI& event)
-	{
-		//if (event.Type==UIEVENT_RBUTTONDOWN)
-		//{
-		//	if (_tcscmp(event.pSender->GetClass(),_T("ListHeaderUI"))!=0)
-		//	{
-		//		POINT pt = event.ptMouse;
-		//		CDuiMenu* pMenu = new CDuiMenu(_T("xmls/ListMenu.xml"));
-		//		pMenu->Init(HWND(this),pt);
-		//		pMenu->ShowWindow(true);
-		//	}
-		//}
-		CListUI::DoEvent(event);
-	}
+	//void CListPlusUI::DoEvent(TEventUI& event)
+	//{
+	//	//if (event.Type==UIEVENT_RBUTTONDOWN)
+	//	//{
+	//	//	if (_tcscmp(event.pSender->GetClass(),_T("ListHeaderUI"))!=0)
+	//	//	{
+	//	//		POINT pt = event.ptMouse;
+	//	//		CDuiMenu* pMenu = new CDuiMenu(_T("xmls/ListMenu.xml"));
+	//	//		pMenu->Init(HWND(this),pt);
+	//	//		pMenu->ShowWindow(true);
+	//	//	}
+	//	//}
+
+	//	if (event.Type==UIEVENT_SCROLLWHEEL)
+	//	{
+	//	}
+	//	CListUI::DoEvent(event);
+	//}
 	
 
 	void CListPlusUI::SetItemData(int nItem,int nColumn,LPCTSTR Text, LPCTSTR Name)
